@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/about_us" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="#9E479E"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/actionTypeTitle"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="درباره ما"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:padding="10dp"
+            android:paddingTop="10dp"
+            android:text="برنامه نویسان"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#999999"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:paddingRight="20dp"
+            android:text="عاطفه ایرانی \n صابر شیبانی مقدم"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="با تشکر ویژه از" />
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/normal_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="دکتر هادی مرادی، استادیار دانشکده برق و کامپیوتر دانشگاه تهران"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView7"
+            style="@style/normal_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="دکتر حمیدرضا پور اعتماد، موسس و مسئول مرکز ساماندهی درمان و توانبخشی اختلالات اوتیستیک" />
+
+        <TextView
+            android:id="@+id/textView8"
+            style="@style/normal_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="اعضای محترم آزمایشگاه هوش مصنوعی دانشکده برق و کامپیوتر دانشگاه تهران " />
+
+    </LinearLayout>
+
+</RelativeLayout>

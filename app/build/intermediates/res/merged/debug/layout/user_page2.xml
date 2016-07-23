@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/user2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="#10D1F7"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/actionTypeTitle"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="مشخصات کاربر ۲"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="تاریخ تولد:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000" />
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <EditText
+                            android:id="@+id/age"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="سال"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:nextFocusDown="@+id/month" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/"
+                            android:textSize="23sp" />
+
+                        <EditText
+                            android:id="@+id/month"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="ماه"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:nextFocusDown="@+id/day" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/"
+                            android:textSize="23sp" />
+
+                        <EditText
+                            android:id="@+id/day"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="روز"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:singleLine="true" />
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="جنسیت کودک:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000" />
+
+                    <Spinner
+                        android:id="@+id/spinner_gender"
+                        android:layout_width="271dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:background="@drawable/spinner_bar" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="وجود سابقه ی بیماری اوتیسم در خانواده:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000" />
+
+                    <Spinner
+                        android:id="@+id/spinner_background"
+                        android:layout_width="275dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:background="@drawable/spinner_bar"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="آیا کودک اوتیستیک شناخته شده است؟"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000" />
+
+                    <Spinner
+                        android:id="@+id/spinner_autistic"
+                        android:layout_width="275dp"
+                        android:layout_height="62dp"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:background="@drawable/spinner_bar"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/textView_phoneNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="شماره تلفن:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000" />
+
+                    <EditText
+                        android:id="@+id/editText_phoneNum"
+                        android:layout_width="271dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:singleLine="true" />
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/orangerectangle"
+                    android:onClick="storeData"
+                    android:padding="5dp"
+                    android:text="ثبت اطلاعات" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</LinearLayout>

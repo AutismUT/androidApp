@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/debug/menu/menu_selecting_interact_type.xml",
+        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/menu/menu_selecting_interact_type.xml"
+    },
+    {
+        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/debug/menu/menu_select_action.xml",
+        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/menu/menu_select_action.xml"
+    },
+    {
+        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/debug/menu/menu_selectcryingtype.xml",
+        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/menu/menu_selectcryingtype.xml"
+    }
+]

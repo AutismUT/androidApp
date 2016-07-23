@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.autismtheme"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Light.NoTitleBar"
+        android:vmSafeMode="false" >
+        <activity
+            android:name="com.example.autismtheme.main_activity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.autismtheme.AboutAutismActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.autismtheme.HelpActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.autismtheme.InfoActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.autismtheme.UserActivity1"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.autismtheme.UserActivity2"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.autismtheme.ActivityInteract"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.autismtheme.ActivityInteractProcess"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.autismtheme.ActivityRecord"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.autismtheme.ActivityLaugh"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="com.example.autismtheme.UploadService"
+            android:noHistory="true" />
+
+        <activity
+            android:name="com.example.autismtheme.SelectRecordingType"
+            android:label="@string/title_activity_selectcryingtype"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.autismtheme.SelectingInteractType"
+            android:label="@string/title_activity_selecting_interact_type"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.autismtheme.selectAction"
+            android:label="@string/title_activity_select_action"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="com.example.autismtheme.EditUserInfo"
+            android:enabled="true"
+            android:exported="true" />
+    </application>
+
+</manifest>
