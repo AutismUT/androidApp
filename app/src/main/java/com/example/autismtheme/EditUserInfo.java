@@ -53,7 +53,7 @@ public class EditUserInfo extends Service {
 
         SharedPreferences UserInfo;
 
-        private String serverIp = "http://aris.ut.ac.ir/autism-android";
+        private String serverIp = "http://helpautism.ir/autism-android/";
 
         //created as keys for shared preferences
         String key_userinfo = "User Info";
@@ -84,10 +84,12 @@ public class EditUserInfo extends Service {
 
             try {
 
+                int a= 2-UserInfo.getInt(key_background,0);
+                Log.e("ffffffffffffffffffff", " is "+a);
                 String urlString = serverIp+"/edit_user.php?"
                         + "&tel='"+UserInfo.getString(key_phonenum, null)+""
-                        + "'&male="+(1-UserInfo.getInt(key_gender, 0))+""
-                        + "&back="+(2-UserInfo.getInt(key_background, 0))+""
+                        + "'&male="+(1- UserInfo.getInt(key_gender, 0))+""
+                        + "&back="+(2 - UserInfo.getInt(key_background, 0))+""
                         + "&age='"+(UserInfo.getString(key_age, "not set"))+"'"
                         +"&id="+UserInfo.getString(key_id, null).trim()+""
                         +"&autistic="+UserInfo.getInt(key_autistic, 0);

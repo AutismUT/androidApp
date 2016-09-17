@@ -7,7 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+
+//import com.squareup.picasso.Picasso;
 
 
 public class SelectRecordingType extends Activity {
@@ -28,11 +33,7 @@ public class SelectRecordingType extends Activity {
         startActivity(i);
     }
 
-    public void exitToHome(View v){
-        finish();
-        if(selectAction.selectActionInstance != null)
-            selectAction.selectActionInstance.finish();
-    }
+
 
     public void onDestroy(){
         super.onDestroy();
@@ -44,9 +45,13 @@ public class SelectRecordingType extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selectcryingtype);
         selectRecordingTypeInstance = this;
+        ImageView imageView = (ImageView)findViewById(R.id.image_view_voice);
+        Glide.with(this).load(R.drawable.voice).into(imageView);
         action = getIntent().getExtras().getString("action");
-        Button btn1 = (Button) findViewById(R.id.buttonOnlyRecord);
-        Button btn2 = (Button) findViewById(R.id.buttonRecordingWithInteract);
+        TextView btn1 = (TextView) findViewById(R.id.buttonOnlyRecord);
+        TextView btn2 = (TextView) findViewById(R.id.buttonRecordingWithInteract);
+        btn1.setTypeface(CustomFontsLoader.getTypeface(this));
+        btn2.setTypeface(CustomFontsLoader.getTypeface(this));
         TextView tv = (TextView)findViewById(R.id.actionTypeTitle);
         if(action.equals("cry")) {
             btn1.setText("ضبط صدای گریه");

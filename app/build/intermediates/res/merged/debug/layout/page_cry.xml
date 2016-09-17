@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <com.example.autismtheme.CustomTextView
                 android:id="@+id/titleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -23,19 +23,21 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="تست گریه"
+                android:layout_gravity="center"
                 android:textColor="@color/white"
-                android:textSize="26sp" />
+                android:textSize="30sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp">
 
                 <LinearLayout
                     android:id="@+id/topLinearLayout1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
                     android:background="@drawable/top">
 
                     <FrameLayout
@@ -73,8 +75,8 @@
 
                 <LinearLayout
                     android:id="@+id/topLinearLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
                     android:background="@drawable/bottom"
                     android:visibility="invisible">
 
@@ -138,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true">
 
-                        <TextView
+                        <com.example.autismtheme.CustomTextView
                             android:id="@+id/textSecond"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -146,7 +148,7 @@
                             android:textColor="@color/white"
                             android:textSize="18sp" />
 
-                        <TextView
+                        <com.example.autismtheme.CustomTextView
                             android:id="@+id/textMili"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -162,10 +164,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/curvedrectangle">
 
-                    <TextView
+                    <com.example.autismtheme.CustomTextView
                         android:id="@+id/areYouAccepting"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -174,7 +177,7 @@
                         android:layout_margin="10dp"
                         android:text="@string/areYouAcceptingCurrentRecord"
                         android:textColor="@color/white"
-                        android:textSize="18sp" />
+                        android:textSize="21sp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -204,14 +207,22 @@
             </RelativeLayout>
 
 
-            <TextView
+            <com.example.autismtheme.CustomTextView
+                android:id="@+id/text_view_test_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@color/white"
+                android:layout_marginRight="20dp"
+                android:visibility="gone"/>
+            <com.example.autismtheme.CustomTextView
                 android:id="@+id/txt_help"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:paddingLeft="10pt"
                 android:paddingRight="10pt"
                 android:text="@string/helpcry"
+                android:textSize="21sp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#fff"
                 android:textColorHint="#fff" />

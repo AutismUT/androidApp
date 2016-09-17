@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.drawable.ColorDrawable;
@@ -21,8 +23,10 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 import android.os.Handler;
+import android.os.SystemClock;
 import android.text.Html;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewTreeObserver;
@@ -45,6 +49,7 @@ public class ActivityRecord extends Activity {
    private Button playBtn;
    private Button stopPlayBtn;
    private int childNum;
+	SharedPreferences UserInfo;
 	String fileName = null;
 	String type = null;
 	String action = null;
@@ -52,6 +57,8 @@ public class ActivityRecord extends Activity {
 	long startTime;
 	boolean isRecording = false;
 	int cryingReason =-1;
+	TextView textViewTestNumber;
+	Editor editor_userinfo;
 
 	Handler hl = new Handler();
 	//create runnable for updating progress bar
@@ -89,25 +96,28 @@ public class ActivityRecord extends Activity {
 
 	};
 
+
+
 	Integer numberOfSong;
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.page_cry);
 	   String key_userinfo="User Info"+getChildNum();
-	   SharedPreferences UserInfo = getSharedPreferences(key_userinfo, Context.MODE_PRIVATE);
-	   Editor editor_userinfo = UserInfo.edit();
+	   UserInfo = getSharedPreferences(key_userinfo, Context.MODE_PRIVATE);
+	   editor_userinfo = UserInfo.edit();
+	   textViewTestNumber = (TextView) findViewById(R.id.text_view_test_number);
 	   numberOfSong = UserInfo.getInt("lastPlayed",-1);
-	   if(numberOfSong == -1 || numberOfSong == 4){
+	   if(numberOfSong == -1){
 		   editor_userinfo.putInt("lastPlayed",1);
 		   editor_userinfo.apply();
 		   numberOfSong = 1;
 	   }
-	   else{
-		   numberOfSong += 1;
-		   editor_userinfo.putInt("lastPlayed",numberOfSong);
-		   editor_userinfo.apply();
-	   }
+
+
+
+
+
 
 
 
@@ -116,6 +126,7 @@ public class ActivityRecord extends Activity {
 //	   ImageView iv = (ImageView)findViewById(R.id.imageView1);
 	   type = (String)getIntent().getExtras().get("type");
 	   action = (String)getIntent().getExtras().get("action");
+
 	   TextView titleText = (TextView)findViewById(R.id.titleText);
 
 		String middle = null;
@@ -153,6 +164,8 @@ public class ActivityRecord extends Activity {
 		   String second = "است دکمه ضبط صدا را زده و ترجیحا منتظر بمانید تا ضبط صدا پایان یابد";
 		   tv.setText(first+middle+second);
 		   title ="تعامل با سیستم ";
+		   textViewTestNumber.setVisibility(View.VISIBLE);
+		   textViewTestNumber.setText("تست شماره "+numberOfSong);
 
 	   }
 	   else if(type.equals("only")){
@@ -183,18 +196,9 @@ public class ActivityRecord extends Activity {
 			   pb.requestLayout();
 		   }
 	   });
-
+		pb.setProgress(0);
 	   //set height of linear layout
-	   final LinearLayout ll = (LinearLayout)findViewById(R.id.topLinearLayout1);
-	   ll.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-		   @Override
-		   public void onGlobalLayout() {
-			   double width = ll.getMeasuredWidth();
-			   width/=2;
-			   ll.getLayoutParams().height = (int)width;
-			   ll.requestLayout();
-		   }
-	   });
+
 
 
 
@@ -205,8 +209,8 @@ public class ActivityRecord extends Activity {
 	   SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
 	   String currentDateandTime = sdf.format(new Date());
 
-	   fileName = action + "#" + type + "#" + currentDateandTime + ".3gp";
-	   outputFile = getFilesDir()+"/"+fileName;
+	   fileName = action + "#" + type + "#" + currentDateandTime + ".mp3";
+	   outputFile = getFilesDir()+"/"+getChildNum()+"/"+fileName;
 
 
 
@@ -251,7 +255,7 @@ public class ActivityRecord extends Activity {
 	Runnable playSong = new Runnable() {
 		@Override
 		public void run() {
-				main_activity.sendToast(numberOfSong.toString()+".wav",ActivityRecord.this);
+//				main_activity.sendToast(numberOfSong.toString()+".wav",ActivityRecord.this);
 				int id = 1;
 				switch (numberOfSong){
 					case 1:
@@ -271,6 +275,13 @@ public class ActivityRecord extends Activity {
 					myPlayer.reset();
 				}
 				myPlayer = MediaPlayer.create(ActivityRecord.this,id);
+				AudioManager am =
+						(AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+				am.setStreamVolume(
+						AudioManager.STREAM_MUSIC,
+						am.getStreamMaxVolume(AudioManager.STREAM_MUSIC),
+						0);
 //				myPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 //				mp.prepare();
 			myPlayer.start();
@@ -282,7 +293,8 @@ public void start(View view){
 
 	run.run();
 	if(type.equals("interactWithSystem")) {
-		hl2.postDelayed(playSong,2500);
+		hl2.postDelayed(playSong,2000);
+		hl2.postDelayed(playSong,11000);
 	}
 	//change color of button
 	FrameLayout fl = (FrameLayout)findViewById(R.id.recordButtonChangeColor);
@@ -301,8 +313,8 @@ public void start(View view){
 				myRecorder.reset();
 		   }
 			   myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-			   myRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-			   myRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+			   myRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+			   myRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
 			   myRecorder.setOutputFile(outputFile);
 			   myRecorder.prepare();
 			   myRecorder.start();
@@ -324,7 +336,7 @@ public void start(View view){
        
        Toast.makeText(getApplicationContext(), "ضبط شروع شد",
     		   Toast.LENGTH_SHORT).show();
-	hl.postDelayed(run2, 20500);
+	hl.postDelayed(run2, 20000);
        
    }
 	Runnable run2 =new Runnable() {
@@ -381,16 +393,16 @@ public void start(View view){
 		if(action.equals("cry")&&type.equals("only")){
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
 			String currentDateandTime = sdf.format(new Date());
-			fileName = action+"#"+type+"#"+currentDateandTime+"#"+cryingReason+".3gp";
-			File newFile = new File(getFilesDir()+"/"+fileName);
+			fileName = action+"#"+type+"#"+currentDateandTime+"#"+cryingReason+".mp3";
+			File newFile = new File(getFilesDir()+"/"+getChildNum()+"/"+fileName);
 			File file = new File(outputFile);
 			file.renameTo(newFile);
 		}
 		else if(type.equals("interactWithSystem")){
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
 			String currentDateandTime = sdf.format(new Date());
-			fileName = action+"#"+type+"#"+currentDateandTime+"#"+numberOfSong+".3gp";
-			File newFile = new File(getFilesDir()+"/"+fileName);
+			fileName = action+"#"+type+"#"+currentDateandTime+"#"+numberOfSong+".mp3";
+			File newFile = new File(getFilesDir()+"/"+getChildNum()+"/"+fileName);
 			File file = new File(outputFile);
 			file.renameTo(newFile);
 		}
@@ -399,10 +411,9 @@ public void start(View view){
 	private void uploadFile(){
 //		setDoUpload();
 
-		Context context = getApplication();
-		Intent intent = new Intent(context, UploadService.class);
+		final Intent intent = new Intent(this, UploadService.class);
 		intent.putExtra("fileName",fileName);
-		context.startService(intent);
+		startService(intent);
 	}
 
 	public void acceptInteractOrNot(View v){
@@ -412,6 +423,21 @@ public void start(View view){
 			askingReasonOfCrying();
 		}
 		else {
+			Log.e("numberOfSong","yes1");
+			if(type.equals("interactWithSystem")) {
+				Log.e("numberOfSong","yes2");
+				if (numberOfSong == 4) {
+					editor_userinfo.putInt("lastPlayed", 1);
+					editor_userinfo.apply();
+					numberOfSong = 1;
+				} else {
+
+					numberOfSong += 1;
+					Log.e("numberofsong","is "+numberOfSong);
+					editor_userinfo.putInt("lastPlayed", numberOfSong);
+					editor_userinfo.apply();
+				}
+			}
 			gauideforCompletingInfo();
 		}
 
@@ -438,7 +464,9 @@ public void start(View view){
 		builder.setTitle("دلیل گریه کودک چیست ؟");
 		builder.setCancelable(false);
 		builder.setItems(new CharSequence[]
-						{"گرسنگی","تشنگی" ,"خواب آلودگی یا کم خوابی", "درد یا بیماری", "کثیف بودن", "بهانه گیری برای در آغوش گرفتن", "نمیدانم", "سایر","عدم تمایل به پاسخگویی"},
+						{"گرسنگی","تشنگی" ,"خواب آلودگی یا کم خوابی", "درد یا بیماری",
+								"کثیف بودن", "بهانه گیری","عدم تمایل به همکاری با والدین" ,"سایر","نمیدانم"
+								,"پاسخ نمیدهم"},
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						// The 'which' argument contains the index position
@@ -474,6 +502,9 @@ public void start(View view){
 							case 9:
 								cryingReason = 9;
 								break;
+							case 10:
+								cryingReason = 10;
+								break;
 						}
 						gauideforCompletingInfo();
 
@@ -507,7 +538,7 @@ public void start(View view){
 
 //				dlgAlertFirst.setMessage((Html.fromHtml("Hello " + "<b>" + "World" + "</b>")));
 			} else if (type.equals("interactWithParent")) {
-				dlgAlertFirst.setMessage(Html.fromHtml("در صورتی که امکان و تعامل انجام تست "+"<b>"+"تعامل با سیستم در حین "+persianAction+"</b>"+" را دارید ادامه را انتخاب کنید"));
+				dlgAlertFirst.setMessage(Html.fromHtml("در صورتی که امکان و تمایل انجام تست "+"<b>"+"تعامل با سیستم در حین "+persianAction+"</b>"+" را دارید ادامه را انتخاب کنید"));
 			}
 			dlgAlertFirst.setNegativeButton("انصراف", new DialogInterface.OnClickListener() {
 				@Override
@@ -540,6 +571,8 @@ public void start(View view){
 
 
 	public void cancelRecord(View v){
+		File file = new File(outputFile);
+		file.delete();
 		AlertDialog.Builder dlgAlertFirst  = new AlertDialog.Builder(this);
 		dlgAlertFirst.setMessage("آیا میخواهید دوباره ضبط کنید؟");
 		dlgAlertFirst.setCancelable(false);
@@ -576,14 +609,7 @@ public void start(View view){
 			public void onClick(DialogInterface dialog, int which) {
 
 
-				if(type.equals("interactWithSystem")){
-					numberOfSong--;
-					String key_userinfo="User Info"+getChildNum();
-					SharedPreferences UserInfo = getSharedPreferences(key_userinfo, Context.MODE_PRIVATE);
-					Editor editor_userinfo = UserInfo.edit();
-					editor_userinfo.putInt("lastPlayed",numberOfSong);
-					editor_userinfo.apply();
-				}
+
 				finish();
 
 			}
@@ -593,8 +619,8 @@ public void start(View view){
 
    public void stop(View view){
 	   //do nesessary changes of ui
-		changingUI();
-		hl2.removeCallbacks(playSong);
+	   changingUI();
+	   hl2.removeCallbacks(playSong);
 	   if(myPlayer!=null && myPlayer.isPlaying())
 	   myPlayer.stop();
 	   hl.removeCallbacks(run);
@@ -710,11 +736,8 @@ public void start(View view){
 	   try {
 	       if (myPlayer != null&& myPlayer.isPlaying()) {
 	    	   myPlayer.stop();
-
 	           playBtn.setEnabled(true);
 	           stopPlayBtn.setEnabled(false);
-	          
-	           
 	           Toast.makeText(getApplicationContext(), "پایان پخش",
 					   Toast.LENGTH_SHORT).show();
 	       }

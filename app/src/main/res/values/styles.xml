@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme">app_theme</style>
+
 	<style name="title" parent="@android:style/TextAppearance">
 	        <item name="android:layout_width">fill_parent</item>
 	        <item name="android:textStyle">bold</item>
@@ -23,6 +23,8 @@
             <item name = "android:layout_height">79dp</item>
           
 	</style>
+
+
 
 	
     

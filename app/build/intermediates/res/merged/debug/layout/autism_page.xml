@@ -1,54 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/autism">
+    android:orientation="vertical"
+    android:background="@color/light_gray">
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-
-        <ScrollView
+        <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content"
+            android:background="@color/yellow">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_gravity="right"
+                android:layout_marginRight="30dp">
 
-                <LinearLayout
-                    android:id="@+id/title"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="40dp"
-                    android:background="#FDF001"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/actionTypeTitle"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="اوتیسم چیست؟"
-                        android:textColor="@color/white"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView2"
-                    style="@style/normal_text"
+                <com.example.autismtheme.CustomTextView
+                    android:id="@+id/actionTypeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.90"
-                    android:text="اوتیسم يک بيماري نيست بلکه يک اختلال رشد در عملکرد مغز است. افراد اوتيستيک سه نوع علامت را نشان مي‌دهند: روابط اجتماعي ضعيف، مشکلاتي در ارتباط کلامي و غيرکلامي و نيز علایق و فعاليت‌هاي محدود. اين علائم در سه سال اول زندگي بروز مي‌کند و به نظر مي‌رسد که در سرتاسر زندگي ادامه پيدا مي‌کند. "
-                    android:textSize="20dp" />
+                    android:gravity="center"
+                    android:text="اوتیسم چیست؟"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
             </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
 
-</RelativeLayout>
+
+
+            <ExpandableListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/expandable_list_view"
+                android:groupIndicator="@null">
+
+            </ExpandableListView>
+
+
+
+</LinearLayout>

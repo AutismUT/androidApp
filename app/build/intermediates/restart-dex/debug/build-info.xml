@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="21"
+    density="420dpi"
+    format="7"
+    timestamp="10827565322051"
+    token="3136268791384311575" >
+
+    <task
+        name="javac"
+        duration="4704" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="548" />
+    <task
+        name="verifier"
+        duration="56" />
+
+    <artifact
+        location="/home/sajad/Downloads/Autism1/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="10827565322051" >
+        <artifact
+            location="/home/sajad/Downloads/Autism1/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

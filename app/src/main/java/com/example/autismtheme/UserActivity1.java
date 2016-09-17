@@ -61,10 +61,13 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
     //editor for saving user info in the shared preference
     Editor editor_userinfo;
 
+    AlertDialog.Builder alertDialog;
+
     Integer Year;
     //Views used for Dropdowns
     Spinner dropdown_gender;
     Spinner dropdown_background;
+    Button store;
     Spinner dropdown_autistic;
 
     //EditText for entering phone number manually
@@ -166,13 +169,24 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.user_page1);
+
+        alertDialog = new AlertDialog.Builder(UserActivity1.this)
+                .setTitle("هشدار")
+                .setPositiveButton("باشه", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        dialog.dismiss();
+                    }
+                });
 
         day = (EditText) findViewById(R.id.day);
         month = (EditText) findViewById(R.id.month);
         age = (EditText) findViewById(R.id.age);
 
-
+        store = (Button) findViewById(R.id.storeData);
+        store.setTypeface(CustomFontsLoader.getTypeface(this));
 
         day.addTextChangedListener(tw);
         month.addTextChangedListener(tw);
@@ -208,23 +222,23 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
         ////// Saving the phone number after the user has finished entering it\\\\\
 
 
-        ///////DropDown Gender\\\\\\\\\\\
+        ///////DropDown Gender\\
         dropdown_gender = (Spinner) findViewById(R.id.spinner_gender);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.GenderValues, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.GenderValues, R.layout.spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown_gender.setAdapter(adapter2);
         dropdown_gender.setOnItemSelectedListener(this);
 
         ///////DropDown Background\\\\\\\\\\\
         dropdown_background = (Spinner) findViewById(R.id.spinner_background);
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.BackgroundValues, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.BackgroundValues, R.layout.spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown_background.setAdapter(adapter3);
         dropdown_background.setOnItemSelectedListener(this);
 
         ///////DropDown Autistic\\\\\\\\\\\
         dropdown_autistic = (Spinner) findViewById(R.id.spinner_autistic);
-        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.AutisticValues, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.AutisticValues, R.layout.spinner_item);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown_autistic.setAdapter(adapter4);
         dropdown_autistic.setOnItemSelectedListener(this);
@@ -359,6 +373,7 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
 
 
 
+
     private boolean checkValidation(){
         if (editor_userinfo == null)
             editor_userinfo = UserInfo.edit();
@@ -366,24 +381,29 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
             int ageNumber = Integer.parseInt(age.getText().toString());
             int monthNumber = Integer.parseInt(month.getText().toString());
             int dayNumber = Integer.parseInt(day.getText().toString());
-            if (ageNumber < Year-5 || ageNumber > Year || monthNumber > 12 || monthNumber < 1 || dayNumber < 1 || dayNumber > 31) {
-                main_activity.sendToast("سن کودک باید تا ۵ سال باشد", this);
+            if(monthNumber > 12 || monthNumber < 1 || dayNumber < 1 || dayNumber > 31){
+                alertDialog.setMessage("تاریخ تولد صحیح نیست").show();
+                return false;
+            }
+            if (ageNumber < Year-5 || ageNumber > Year) {
+                alertDialog.setMessage("سن کودک باید کمتر از ۵ سال باشد").show();
                 return false;
             }
         } catch (NumberFormatException nfe) {
-            main_activity.sendToast("تاریخ تولد صحیح یا کامل نیست", this);
+            alertDialog.setMessage("تاریخ تولد صحیح یا کامل نیست").show();
+
             return false;
         }
 
 
         if (edittext_phonenum.getText().toString().length() < 11) {
-            main_activity.sendToast("شماره تلفن معتبر نیست", this);
+            alertDialog.setMessage("شماره تلفن معتبر نیست").show();
             return false;
         }
         try {
             Double.parseDouble(edittext_phonenum.getText().toString());
         } catch (NumberFormatException exception) {
-            main_activity.sendToast("شماره تلفن معتبر نیست", this);
+            alertDialog.setMessage("شماره تلفن معتبر نیست").show();
             return false;
         }
         return true;
@@ -472,10 +492,9 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
 
     private void uploadFile(){
         if(upload!= null && upload.equals("1")) {
-            Context context = getApplication();
-            Intent intent = new Intent(context, UploadService.class);
+            Intent intent = new Intent(this, UploadService.class);
             intent.putExtra("fileName", fileName);
-            context.startService(intent);
+            startService(intent);
         }
         finish();
     }

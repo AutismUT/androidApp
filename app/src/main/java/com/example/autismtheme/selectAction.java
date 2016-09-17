@@ -6,12 +6,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+//import com.squareup.picasso.Picasso;
+
+import com.bumptech.glide.Glide;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -31,6 +39,7 @@ public class selectAction extends Activity {
     String key_phonenum="Phone Num";
     String key_id="ID Key";
 
+    Button button1,button2,button3;
     JalaliCalendar jc = new JalaliCalendar();
 
     int childNum;
@@ -84,10 +93,26 @@ public class selectAction extends Activity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        finish();
+
+
+
+    private class DialogKeyListener implements android.content.DialogInterface.OnKeyListener
+    {
+        @Override
+        public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event)
+        {
+            if(keyCode == KeyEvent.KEYCODE_BACK)
+            {
+                dialog.dismiss();
+                finish(); // or something like that
+                return false;
+            }
+            return true;
+        }
     }
+
+
+
 
     @Override
     public void onDestroy(){
@@ -101,6 +126,17 @@ public class selectAction extends Activity {
 
         setContentView(R.layout.activity_select_action);
         selectActionInstance = this;
+
+        ImageView imageView = (ImageView)findViewById(R.id.image_view_voice);
+        Glide.with(this).load(R.drawable.voice).into(imageView);
+
+//        Button btn1 = (Button)findViewById(R.id.buttonOnlyRecord);
+//        Button btn2 = (Button)findViewById(R.id.buttonRecordingLaugh);
+//        Button btn3 = (Button)findViewById(R.id.buttonRecordingWithInteract);
+//        btn1.setTypeface(CustomFontsLoader.getTypeface(this));
+//        btn2.setTypeface(CustomFontsLoader.getTypeface(this));
+//        btn3.setTypeface(CustomFontsLoader.getTypeface(this));
+
 
         String firstButton = buttonText(1);
         String secondButton = buttonText(2);
@@ -148,9 +184,12 @@ public class selectAction extends Activity {
             }
         });
 
-
-        dlgAlertFirst.setCancelable(true);
+//        dlgAlertFirst.setCanceledOnTouchOutside(false);
+        dlgAlertFirst.setCancelable(false);
+        DialogKeyListener dkl = new DialogKeyListener();
+        dlgAlertFirst.setOnKeyListener(dkl);
         dlgAlertFirst.create().show();
+
     }
 
 

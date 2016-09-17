@@ -6,7 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+
+//import com.squareup.picasso.Picasso;
 
 
 public class SelectingInteractType extends Activity {
@@ -33,13 +38,6 @@ public class SelectingInteractType extends Activity {
         selectingInteractType = null;
     }
 
-    public void exit(View v){
-        finish();
-        if(selectAction.selectActionInstance != null)
-            selectAction.selectActionInstance.finish();
-        if(SelectRecordingType.selectRecordingTypeInstance != null)
-            SelectRecordingType.selectRecordingTypeInstance.finish();
-    }
 
 
 
@@ -47,6 +45,8 @@ public class SelectingInteractType extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selecting_interact_type);
+        ImageView imageView = (ImageView)findViewById(R.id.image_view_voice);
+        Glide.with(this).load(R.drawable.voice).into(imageView);
         action = getIntent().getExtras().getString("action");
         TextView tv = (TextView)findViewById(R.id.actionTypeTitle);
         selectingInteractType = this;
