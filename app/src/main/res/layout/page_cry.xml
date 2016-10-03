@@ -37,6 +37,7 @@
                 <LinearLayout
                     android:id="@+id/topLinearLayout1"
                     android:layout_width="300dp"
+                    android:layout_centerInParent="true"
                     android:layout_height="150dp"
                     android:background="@drawable/top">
 
@@ -77,6 +78,7 @@
                     android:id="@+id/topLinearLayout2"
                     android:layout_width="300dp"
                     android:layout_height="150dp"
+                    android:layout_centerInParent="true"
                     android:background="@drawable/bottom"
                     android:visibility="invisible">
 

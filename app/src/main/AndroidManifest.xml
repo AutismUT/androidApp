@@ -44,7 +44,7 @@
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".InfoActivity"
+            android:name=".AboutUsActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity

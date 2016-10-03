@@ -46,7 +46,7 @@
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.autismtheme.InfoActivity"
+            android:name="com.example.autismtheme.AboutUsActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity

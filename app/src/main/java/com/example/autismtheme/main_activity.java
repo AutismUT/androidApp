@@ -10,8 +10,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -25,12 +23,9 @@ import com.bumptech.glide.Glide;
 import com.crashlytics.android.Crashlytics;
 
 import java.io.File;
-import java.io.IOException;
 
 import io.fabric.sdk.android.Fabric;
 
-
-//import com.squareup.picasso.Picasso;
 
 
 public class main_activity extends Activity implements OnClickListener {
@@ -46,41 +41,48 @@ public class main_activity extends Activity implements OnClickListener {
     @Override
     public void onResume() {
         super.onResume();
+        //cancel alarm manager for showing notification
         am.cancel(pendingIntent);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        am.setRepeating(am.RTC_WAKEUP, System.currentTimeMillis() + am.INTERVAL_DAY * 10, am.INTERVAL_DAY * 10, pendingIntent);
+        //set alarm for 10 days later
+        am.setRepeating(am.RTC_WAKEUP
+                , System.currentTimeMillis() + am.INTERVAL_DAY * 10
+                , am.INTERVAL_DAY * 10
+                , pendingIntent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_menu);
+
+        //configuring fabric for getting users' data and crashes
         Fabric.with(this, new Crashlytics());
 
+        //creating folder for each user
         File firstFolder = new File(getFilesDir() + "/1");
         if(!firstFolder.exists())
             firstFolder.mkdir();
         File secondFolder = new File(getFilesDir() + "/2");
         if(!secondFolder.exists())
             secondFolder.mkdir();
-        if(firstFolder.exists()){
-            Log.e("yes",firstFolder.toString());
-        }
-        if(secondFolder.exists()){
-            Log.e("yes",secondFolder.toString());
-        }
 
+        //send pending intent to notification receiver
         Intent intent = new Intent(main_activity.this, Receiver.class);
         pendingIntent = PendingIntent.getBroadcast(main_activity.this, 1, intent, 0);
-
         am = (AlarmManager) getSystemService(ALARM_SERVICE);
 
 
-        setContentView(R.layout.main_menu);
+
+        //showing box for  first confirmation of user
         final SharedPreferences sharedPreferences = getSharedPreferences("main", Context.MODE_PRIVATE);
+
+
+        //check whether user has accepted before or not
         if (sharedPreferences.getInt("accept", -1) == -1) {
             AlertDialog alertDialog = new AlertDialog.Builder(this)
                     .setMessage(getResources().getString(R.string.confirmation))
@@ -135,7 +137,7 @@ public class main_activity extends Activity implements OnClickListener {
         //declaring intents
         Intent int_about_autism = new Intent(main_activity.this, AboutAutismActivity.class);
         Intent int_help = new Intent(main_activity.this, HelpActivity.class);
-        Intent int_info = new Intent(main_activity.this, InfoActivity.class);
+        Intent int_info = new Intent(main_activity.this, AboutUsActivity.class);
         Intent int_upload = new Intent(main_activity.this, UserActivity2.class);
         Intent int_user = new Intent(main_activity.this, UserActivity1.class);
         Intent int_voice_recorder = new Intent(main_activity.this, selectAction.class);

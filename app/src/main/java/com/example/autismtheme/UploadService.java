@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -27,11 +28,8 @@ import android.util.Log;
 
 public class UploadService extends Service {
     int started = -1;
-    SharedPreferences UserInfo1;
-    SharedPreferences UserInfo2;
-    String key_is_upload = "Is Upload";
 
-    private int getChildNum() {
+    private int getChildNum(){
         // TODO Auto-generated method stub
         SharedPreferences PublicInfo;
         String key_child = "childNumer";
@@ -318,6 +316,7 @@ public class UploadService extends Service {
 
                 inStream.close();
                 return 0;
+
             } catch (NumberFormatException e) {
                 setIsUpload();
                 Log.e("Debug", "error: Wrong number");
@@ -329,6 +328,12 @@ public class UploadService extends Service {
                 Log.e("Debug", "error: " + ioex.getMessage(), ioex);
                 return -1;
             }
+            catch (Exception exception){
+                Log.e("folan","error");
+                return -1;
+            }
+
+
 
         }
 

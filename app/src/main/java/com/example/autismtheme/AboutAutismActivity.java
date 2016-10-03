@@ -12,12 +12,9 @@ public class AboutAutismActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.autism_page);
 		ExpandableListView expListView = (ExpandableListView) findViewById(R.id.expandable_list_view);
-
 		// preparing list data
 		ArrayList<AutismItem> items = prepareListData();
-
 		ExpandableAdapter listAdapter = new ExpandableAdapter(this,items);
-
 		// setting list adapter
 		expListView.setAdapter(listAdapter);
 	}

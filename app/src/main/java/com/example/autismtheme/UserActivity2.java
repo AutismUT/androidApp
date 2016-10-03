@@ -519,10 +519,6 @@ public class UserActivity2 extends Activity implements OnItemSelectedListener {
 		else {
 			finish();
 		}
-
-//
-
-
 	}
 
 	@Override

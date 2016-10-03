@@ -19,6 +19,7 @@ public class SelectRecordingType extends Activity {
 
     String action = null;
     static Activity selectRecordingTypeInstance = null;
+
     public void openCryTest(View v){
         Intent i = new Intent(SelectRecordingType.this,ActivityRecord.class);
         i.putExtra("action",action);

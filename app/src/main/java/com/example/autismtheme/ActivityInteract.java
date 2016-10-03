@@ -137,7 +137,7 @@ public class ActivityInteract extends Activity {
         }
     };
     int current = 0;
-    private MediaRecorder myRecorder;
+    private ExtAudioRecorder myRecorder;
     private MediaPlayer myPlayer;
     private String outputFile1;
     private String outputFile2;
@@ -196,8 +196,8 @@ public class ActivityInteract extends Activity {
     private void changeFileName() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
         String currentDateandTime = sdf.format(new Date());
-        fileName = "interact#" + currentDateandTime + "#" + turnCount.toString() + "(" + turns + ")" + ".mp3";
-        File newFile = new File(getFilesDir()+"/"+getChildNum() + "/" + fileName);
+        fileName = "interact#" + currentDateandTime + "#" + turnCount.toString() + "(" + turns + ")" + ".wav";
+        File newFile = new File(getFilesDir() + "/" + getChildNum() + "/" + fileName);
         File file = new File(outputFile);
         file.renameTo(newFile);
     }
@@ -205,7 +205,7 @@ public class ActivityInteract extends Activity {
     private void uploadFile() {
 
         final Intent intent = new Intent(this, UploadService.class);
-        intent.putExtra("fileName",fileName);
+        intent.putExtra("fileName", fileName);
         startService(intent);
         finish();
     }
@@ -381,16 +381,15 @@ public class ActivityInteract extends Activity {
                 turns = "000";
                 startTime2 = System.currentTimeMillis();
                 if (myRecorder == null) {
-                    myRecorder = new MediaRecorder();
+                    myRecorder = ExtAudioRecorder.getInstanse(false);
                 } else {
                     myRecorder.reset();
                 }
-                myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-                myRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-                myRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
                 myRecorder.setOutputFile(outputFile);
                 myRecorder.prepare();
                 myRecorder.start();
+                isRecording = true;
+                //   setDoUpload();
                 isRecording = true;
 
                 File file = new File(outputFile);
@@ -412,9 +411,6 @@ public class ActivityInteract extends Activity {
         } catch (IllegalStateException e) {
             // start:it is called before prepare()
             // prepare: it is called after start() or before setOutputFormat()
-            Log.e("Error", e.getMessage());
-        } catch (IOException e) {
-            // prepare() fails
             Log.e("Error", e.getMessage());
         }
     }
@@ -480,7 +476,7 @@ public class ActivityInteract extends Activity {
                                                     }
                                                 }
             );
-            Button button = (Button)alertDialog.findViewById(R.id.confirm);
+            Button button = (Button) alertDialog.findViewById(R.id.confirm);
             button.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -500,8 +496,8 @@ public class ActivityInteract extends Activity {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
         String currentDateandTime = sdf.format(new Date());
 
-        fileName = "interact#" + currentDateandTime + ".mp3";
-        outputFile = getFilesDir()+"/"+getChildNum() + "/" + fileName;
+        fileName = "interact#" + currentDateandTime + ".wav";
+        outputFile = getFilesDir() + "/" + getChildNum() + "/" + fileName;
 
 
     }

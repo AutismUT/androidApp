@@ -16,6 +16,7 @@ public class HelpActivity extends Activity{
 		ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.expandable_list_view);
 		expandableListView.setAdapter(adapterHelp);
 
+
 		
 	}
 
