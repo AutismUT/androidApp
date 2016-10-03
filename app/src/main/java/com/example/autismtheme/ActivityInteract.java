@@ -56,16 +56,17 @@ import org.w3c.dom.Text;
 
 public class ActivityInteract extends Activity {
 
-    Handler handler_interact = new Handler();
+    //miliseconds of time passed
     FrameLayout babyInfo;
     FrameLayout parentInfo;
+
+
     ImageView imageBaby;
     ImageView imageParent;
     boolean recordStarted = false;
     String fileName;
     long startTime1;
     long startTime2;
-    long changeTurnTime;
     Integer time;
     Integer turnCount;
     SeekBar pb;
@@ -85,8 +86,6 @@ public class ActivityInteract extends Activity {
 
             }
             time = (int) (System.currentTimeMillis() - startTime1);
-//			ProgressBar pb = (ProgressBar)findViewById(R.id.pb2);
-//			pb.setProgress(time);
 
             TextView tv = null;
             TextView tv1 = null;
@@ -138,14 +137,6 @@ public class ActivityInteract extends Activity {
     };
     int current = 0;
     private ExtAudioRecorder myRecorder;
-    private MediaPlayer myPlayer;
-    private String outputFile1;
-    private String outputFile2;
-    private Button startBtn;
-    private Button stopBtn;
-    private Button playBtn;
-    private Button stopPlayBtn;
-    private TextView help;
     private int childNum;
     private FrameLayout frameBaby;
     private FrameLayout frameParent;
@@ -193,6 +184,8 @@ public class ActivityInteract extends Activity {
 
     }
 
+
+    //change file name before uploading based on turns and turnscount
     private void changeFileName() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
         String currentDateandTime = sdf.format(new Date());
@@ -239,10 +232,8 @@ public class ActivityInteract extends Activity {
         String userinfo = "User Info" + getChildNum();
         changeFileName();
         if (checkUserInfo.isUserInfoComplete(this, userinfo)) {
-//			main_activity.sendToast("is complete", this);
             uploadFile();
         } else {
-//			main_activity.sendToast("not complete", this);
             showMessageForCompleteingInfo();
         }
 
@@ -311,35 +302,6 @@ public class ActivityInteract extends Activity {
         turn = "baby";
     }
 
-    public void RestartRecord(View v) {
-        LinearLayout ll = (LinearLayout) findViewById(R.id.linear_play);
-        ll.setVisibility(View.GONE);
-        frameParent.setForeground(new ColorDrawable(0x000000));
-        imageParent.setEnabled(true);
-        TextView tv = (TextView) findViewById(R.id.text_parent_second);
-        tv.setText("00");
-        tv = (TextView) findViewById(R.id.text_parent_milisecond);
-        tv.setText("00");
-        tv = (TextView) findViewById(R.id.text_baby_milisecond);
-        tv.setText("00");
-        tv = (TextView) findViewById(R.id.text_baby_second);
-        tv.setText("10");
-        turns = "";
-        pb.setProgress(0);
-        hl.removeCallbacks(run2);
-        if (mp != null) {
-            if (mp.isPlaying()) {
-                ImageButton ib = (ImageButton) findViewById(R.id.btn_play);
-                ib.setImageResource(R.drawable.play);
-                mp.stop();
-            }
-            mp.release();
-            mp = null;
-        }
-
-
-    }
-
     @Override
     public void onPause() {
         super.onPause();
@@ -363,6 +325,7 @@ public class ActivityInteract extends Activity {
     }
 
     public void startRecordingInteract(View v) {
+
         try {
             turn = "parent";
             imageParent.setEnabled(false);
@@ -371,7 +334,9 @@ public class ActivityInteract extends Activity {
             ll.setVisibility(View.VISIBLE);
 
             if (isRecording == true) {
+                //for setting in recorded file name
                 turnCount++;
+                //for setting in recorded file name
                 Integer temp = ((int) (System.currentTimeMillis() - startTime2)) / 10;
                 turns += "_" + temp.toString();
             }
@@ -400,13 +365,12 @@ public class ActivityInteract extends Activity {
             }
 
 
+            //make parent dark baby lightened
             parentInfo.setForeground(new ColorDrawable(0x000000));
             frameBaby.setForeground(new ColorDrawable(0x000000));
             frameParent.setForeground(new ColorDrawable(0x99000000));
             babyInfo.setForeground(new ColorDrawable(0x99000000));
 
-
-            //   setDoUpload();
 
         } catch (IllegalStateException e) {
             // start:it is called before prepare()
@@ -416,8 +380,6 @@ public class ActivityInteract extends Activity {
     }
 
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_interact);
 
@@ -455,8 +417,12 @@ public class ActivityInteract extends Activity {
             }
         });
 
+
+
         final SharedPreferences sharedPreferences = getSharedPreferences("main", Context.MODE_PRIVATE);
+        //check for showing dialog or not
         if (sharedPreferences.getInt("interactAccept", -1) == -1) {
+            //generating dialog
             final Dialog alertDialog = new Dialog(this);
             alertDialog.setTitle("تست تعامل");
             alertDialog.setCancelable(true);
@@ -547,10 +513,7 @@ public class ActivityInteract extends Activity {
         }
     }
 
-    public void stopRecordingInteract(View v) {
-        myRecorder.stop();
-        hl.removeCallbacks(run);
-    }
+
 
 
     @Override
@@ -558,8 +521,6 @@ public class ActivityInteract extends Activity {
         super.onResume();
 
         ColorDrawable cd = new ColorDrawable(0x99000000);
-        LinearLayout ll = (LinearLayout) findViewById(R.id.linear_finish);
-
         frameBaby.setForeground(cd);
         babyInfo.setForeground(cd);
         parentInfo.setForeground(cd);
@@ -567,71 +528,6 @@ public class ActivityInteract extends Activity {
 
 
     }
-
-
-//	   public void start(View view){
-//			//declaring intents
-//			Intent int_interact=new Intent(ActivityInteract.this,ActivityInteractProcess.class);
-//
-//			//starting corresponding intents
-//			startActivity(int_interact);
-//			this.finish();
-//			setDoUpload();
-//
-//	   }
-
-
-//	   public void play(View view) {
-//		   try{
-//			   myPlayer = new MediaPlayer();
-//			   myPlayer.setDataSource(outputFile1);
-//			   myPlayer.prepare();
-//			   myPlayer.start();
-//
-//			   playBtn.setEnabled(false);
-//			   stopPlayBtn.setEnabled(true);
-//
-//
-//			   Toast.makeText(getApplicationContext(), "",
-//					   Toast.LENGTH_SHORT).show();
-//
-//		   } catch (Exception e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//	   }
-//
-//	   public void stopPlay(View view) {
-//		   try {
-//		       if (myPlayer != null) {
-//		    	   myPlayer.stop();
-//		           myPlayer.release();
-//		           myPlayer = null;
-//		           playBtn.setEnabled(true);
-//		           stopPlayBtn.setEnabled(false);
-//		          // text.setText("Recording Point: Stop playing");
-//
-//		           Toast.makeText(getApplicationContext(), "���� ��� ���...",
-//						   Toast.LENGTH_SHORT).show();
-//		       }
-//		   } catch (Exception e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//	   }
-//
-//	   private void setDoUpload() {
-//			// TODO Auto-generated method stub
-//		   SharedPreferences UserInfo;
-//		   String key_is_upload="Is Upload";
-//		   String key_userinfo="User Info"+childNum;
-//		   Editor editor_userinfo;
-//
-//		   UserInfo=getSharedPreferences(key_userinfo, Context.MODE_PRIVATE);
-//		   editor_userinfo = UserInfo.edit();
-//		   editor_userinfo.putString(key_is_upload, "1");
-//		   editor_userinfo.apply();
-//		}
 
 
     private int getChildNum() {

@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 
 //import com.squareup.picasso.Picasso;
 
-
+//setting type of intent(interact type)
 public class SelectingInteractType extends Activity {
 
     static Activity selectingInteractType =null;

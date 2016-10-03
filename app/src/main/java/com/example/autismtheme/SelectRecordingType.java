@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 
 //import com.squareup.picasso.Picasso;
 
-
+//setting type of intent
 public class SelectRecordingType extends Activity {
 
     String action = null;
@@ -48,6 +48,7 @@ public class SelectRecordingType extends Activity {
         selectRecordingTypeInstance = this;
         ImageView imageView = (ImageView)findViewById(R.id.image_view_voice);
         Glide.with(this).load(R.drawable.voice).into(imageView);
+        //retrieving action from intent
         action = getIntent().getExtras().getString("action");
         TextView btn1 = (TextView) findViewById(R.id.buttonOnlyRecord);
         TextView btn2 = (TextView) findViewById(R.id.buttonRecordingWithInteract);

@@ -78,7 +78,7 @@ public class main_activity extends Activity implements OnClickListener {
 
 
 
-        //showing box for  first confirmation of user
+        //showing box for first confirmation of user
         final SharedPreferences sharedPreferences = getSharedPreferences("main", Context.MODE_PRIVATE);
 
 
@@ -121,11 +121,9 @@ public class main_activity extends Activity implements OnClickListener {
 
 
         ImageView imageView = (ImageView) findViewById(R.id.image_view_background);
+        //glid is for loading image
+        //rescaling images for all resolutions
         Glide.with(this).load(R.drawable.main).into(imageView);
-        //upload files
-//				Context context = getApplication();
-//				Intent intent = new Intent(context, UploadService.class);
-//				context.startService(intent);
 
 
     }

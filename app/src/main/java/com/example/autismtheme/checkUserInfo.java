@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 public class checkUserInfo {
 
 
+    //checking the completeness of the profile before sending data
     public static boolean isUserInfoComplete(Context context,String key_userinfo){
         String key_age="Age Key";
         String key_gender="Gender Key";
@@ -21,7 +22,6 @@ public class checkUserInfo {
         int background = (UserInfo.getInt(key_background, -1));
         String phoneNum = (UserInfo.getString(key_phonenum, null));
         int autistic = (UserInfo.getInt(key_autistic, -1));
-//        main_activity.sendToast(birthiday+" "+gender+" "+background+" "+phoneNum+" "+autistic,context);
         if(birthiday == null || gender == -1 || background == -1 || phoneNum == null||autistic == -1) {
             return false;
         }

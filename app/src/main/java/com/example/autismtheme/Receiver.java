@@ -13,6 +13,8 @@ import android.support.v4.app.NotificationCompat;
 /**
  * Created by sajad on 8/25/16.
  */
+
+//receiver of notification intent
 public class Receiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {

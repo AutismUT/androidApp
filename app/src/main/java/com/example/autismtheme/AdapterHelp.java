@@ -5,7 +5,6 @@ package com.example.autismtheme;
  */
 
 import android.content.Context;
-import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,29 +17,25 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-
-import android.content.Context;
-import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
 
-/**
- * Created by sajad on 8/11/16.
- */
+//adapter used for connecting data of items with UI
+//listView in HelpPage
 public class AdapterHelp extends BaseExpandableListAdapter {
 
     private Context context;
-    ArrayList<HelpItem> items;
+    ArrayList<ItemHelp> items;
 
-    public AdapterHelp(Context context, ArrayList<HelpItem> items) {
+    //UI items of the list
+    private class Holder {
+        TextView textViewDescription, textViewTitle;
+        ImageView imageViewGroupArrow;
+        ImageView imageViewDescription;
+    }
+
+    public AdapterHelp(Context context, ArrayList<ItemHelp> items) {
         this.context = context;
         this.items = items;
     }
@@ -61,6 +56,9 @@ public class AdapterHelp extends BaseExpandableListAdapter {
         return 1;
     }
 
+
+
+    //connecting each item to child_item_help.xml
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
@@ -69,7 +67,6 @@ public class AdapterHelp extends BaseExpandableListAdapter {
         if (convertView == null) {
             holder = new Holder();
             convertView = LayoutInflater.from(context).inflate(R.layout.child_item_help, parent, false);
-
             holder.textViewDescription = (TextView) convertView.findViewById(R.id.text_view_description);
             holder.imageViewDescription = (ImageView)convertView.findViewById(R.id.image_view_description);
             convertView.setTag(holder);
@@ -134,11 +131,7 @@ public class AdapterHelp extends BaseExpandableListAdapter {
         return false;
     }
 
-    private class Holder {
-        TextView textViewDescription, textViewTitle;
-        ImageView imageViewGroupArrow;
-        ImageView imageViewDescription;
-    }
+
 
 }
 

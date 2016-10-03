@@ -21,6 +21,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+//for sending edit user info request to server
 public class EditUserInfo extends Service {
     public EditUserInfo() {
     }

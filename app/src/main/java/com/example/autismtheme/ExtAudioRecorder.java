@@ -10,6 +10,8 @@ import android.media.MediaRecorder;
 import android.media.MediaRecorder.AudioSource;
 import android.util.Log;
 
+
+//for recording wav audio
 public class ExtAudioRecorder
 {
     private final static int[] sampleRates = {44100, 22050, 11025, 8000};

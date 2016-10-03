@@ -23,6 +23,7 @@ public class AboutUsActivity extends Activity{
 		Glide.with(this).load(R.drawable.logo1).into(logo3);
 	}
 
+	//more on click
 	public void visibleMoreItems(View v){
 		TextView textView3 = (TextView)findViewById(R.id.textView3);
 		TextView textView4 = (TextView)findViewById(R.id.textView4);

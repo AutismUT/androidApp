@@ -41,8 +41,8 @@ public class UploadService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-//		try {
-        Log.e("service is run", "yes");
+        //this was a bug that makes app crash
+        //this is called with intent==null when application is killed
         if (started == -1 && intent == null) {
             ArrayList<Item> items;
             items = new ArrayList<>();
@@ -65,8 +65,8 @@ public class UploadService extends Service {
                 uft.execute(item.fileName, item.childNum);
             }
         }
-
         if (intent != null) {
+            //if intent contains information of uploading file just get the name and upload it
             String fileName = intent.getExtras().getString("fileName");
             UploadFileTask uft = new UploadFileTask();
             uft.execute(getFilesDir() + "/" + getChildNum() + "/" + fileName, getChildNum());
@@ -74,11 +74,7 @@ public class UploadService extends Service {
         started = 1;
 
         return Service.START_STICKY;
-//		}
-//		catch (Exception exception){
-//			Log.e("error",);
-//			return Service.START_FLAG_REDELIVERY;
-//		}
+
     }
 
     private boolean isNetworkAvailable() {

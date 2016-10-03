@@ -2871,7 +2871,7 @@ containing a value of this type.
         public static final int notification_template_media=0x7f030036;
         public static final int notification_template_part_chronometer=0x7f030037;
         public static final int notification_template_part_time=0x7f030038;
-        public static final int page_cry=0x7f030039;
+        public static final int page_record =0x7f030039;
         public static final int page_interact=0x7f03003a;
         public static final int page_interact_process=0x7f03003b;
         public static final int page_laugh=0x7f03003c;

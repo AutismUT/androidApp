@@ -14,12 +14,18 @@ import java.util.ArrayList;
 /**
  * Created by sajad on 8/11/16.
  */
-public class ExpandableAdapter extends BaseExpandableListAdapter {
+public class AdapterAboutAutism extends BaseExpandableListAdapter {
 
     private Context context;
-    ArrayList<AutismItem> items;
+    ArrayList<ItemAboutAutism> items;
 
-    public ExpandableAdapter(Context context, ArrayList<AutismItem> items) {
+
+    private class Holder {
+        TextView textViewAnswer, textViewQuestion;
+        ImageView imageViewGroupArrow;
+    }
+
+    public AdapterAboutAutism(Context context, ArrayList<ItemAboutAutism> items) {
         this.context = context;
         this.items = items;
     }
@@ -110,9 +116,6 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
         return false;
     }
 
-    private class Holder {
-        TextView textViewAnswer, textViewQuestion;
-        ImageView imageViewGroupArrow;
-    }
+
 
 }

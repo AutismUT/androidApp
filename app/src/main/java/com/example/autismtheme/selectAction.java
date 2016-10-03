@@ -25,6 +25,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 
+//setting action of intent
 public class selectAction extends Activity {
 
     SharedPreferences UserInfo;

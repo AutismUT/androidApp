@@ -2,19 +2,14 @@ package com.example.autismtheme;
 
 
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.PendingIntent;
 import android.content.DialogInterface;
-import android.content.res.AssetFileDescriptor;
 import android.graphics.drawable.ColorDrawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -23,16 +18,13 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 import android.os.Handler;
-import android.os.SystemClock;
 import android.text.Html;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -55,10 +47,12 @@ public class ActivityRecord extends Activity {
     Handler hl2 = new Handler();
     private ExtAudioRecorder myRecorder = null;
     private MediaPlayer myPlayer = null;
+
+
+    //selecting audio to play
     Runnable playSong = new Runnable() {
         @Override
         public void run() {
-//				main_activity.sendToast(numberOfSong.toString()+".wav",ActivityRecord.this);
             int id = 1;
             switch (numberOfSong) {
                 case 1:
@@ -85,11 +79,10 @@ public class ActivityRecord extends Activity {
                     AudioManager.STREAM_MUSIC,
                     am.getStreamMaxVolume(AudioManager.STREAM_MUSIC),
                     0);
-//				myPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-//				mp.prepare();
             myPlayer.start();
         }
     };
+
     private String outputFile = null;
     private Button startBtn;
     private Button stopBtn;
@@ -141,13 +134,23 @@ public class ActivityRecord extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_cry);
+        setContentView(R.layout.page_record);
+
 
         String key_userinfo = "User Info" + getChildNum();
         UserInfo = getSharedPreferences(key_userinfo, Context.MODE_PRIVATE);
         editor_userinfo = UserInfo.edit();
+
+
+        //showing test number
         textViewTestNumber = (TextView) findViewById(R.id.text_view_test_number);
+
+        //indicating type of recording
+        type = (String) getIntent().getExtras().get("type");
+        action = (String) getIntent().getExtras().get("action");
+
         numberOfSong = UserInfo.getInt("lastPlayed", -1);
+        //initializing numberOfSong
         if (numberOfSong == -1) {
             editor_userinfo.putInt("lastPlayed", 1);
             editor_userinfo.apply();
@@ -155,23 +158,19 @@ public class ActivityRecord extends Activity {
         }
 
 
+        //description text
         TextView tv = (TextView) findViewById(R.id.txt_help);
         RelativeLayout rl = (RelativeLayout) findViewById(R.id.RelativeLayout1);
-//	   ImageView iv = (ImageView)findViewById(R.id.imageView1);
-        type = (String) getIntent().getExtras().get("type");
-        action = (String) getIntent().getExtras().get("action");
 
+        //title text
         TextView titleText = (TextView) findViewById(R.id.titleText);
 
         String middle = null;
         if (action.equals("cry")) {
             rl.setBackgroundColor(getResources().getColor(R.color.mainGreen));
-//		   iv.setImageResource(R.drawable.cry_title);
             middle = "گریه ";
-
         } else if (action.equals("laugh")) {
             rl.setBackgroundColor(getResources().getColor(R.color.laughBlue));
-//		   iv.setImageResource(R.drawable.laugh_title);
             LinearLayout ll = (LinearLayout) findViewById(R.id.topLinearLayout1);
             ll.setBackgroundDrawable(getResources().getDrawable(R.drawable.laugh_top));
             ProgressBar pb = (ProgressBar) findViewById(R.id.pb2);
@@ -184,6 +183,8 @@ public class ActivityRecord extends Activity {
 
         }
         String title = null;
+
+        //selecting description text based on recording type
         if (type.equals("interactWithParent")) {
             String first = "لطفا زمانی که کودک در حال ";
             String second = "است دکمه ضبط صدا را زده و پس از شروع ضبط صدا یکبار نام او را به گونه " +
@@ -210,7 +211,6 @@ public class ActivityRecord extends Activity {
             titleText.setText("تست " + middle);
         } else {
             titleText.setText(title + " ( " + middle + " )");
-
         }
 
 
@@ -278,6 +278,8 @@ public class ActivityRecord extends Activity {
 
 
         run.run();
+
+        //playing audio if type is interactWithSystem
         if (type.equals("interactWithSystem")) {
             hl2.postDelayed(playSong, 2000);
             hl2.postDelayed(playSong, 11000);
@@ -303,8 +305,6 @@ public class ActivityRecord extends Activity {
             //   setDoUpload();
 
         } catch (IllegalStateException e) {
-            // start:it is called before prepare()
-            // prepare: it is called after start() or before setOutputFormat()
             Log.e("Error", e.getMessage());
         }
 
@@ -360,6 +360,7 @@ public class ActivityRecord extends Activity {
 
     }
 
+    //setting fileName before uploading
     private void changeFileName() {
         if (action.equals("cry") && type.equals("only")) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
@@ -379,30 +380,22 @@ public class ActivityRecord extends Activity {
     }
 
     private void uploadFile() {
-//		setDoUpload();
-
         final Intent intent = new Intent(this, UploadService.class);
         intent.putExtra("fileName", fileName);
         startService(intent);
     }
 
     public void acceptInteractOrNot(View v) {
-
-
         if (action.equals("cry") && type.equals("only")) {
             askingReasonOfCrying();
         } else {
-            Log.e("numberOfSong", "yes1");
             if (type.equals("interactWithSystem")) {
-                Log.e("numberOfSong", "yes2");
                 if (numberOfSong == 4) {
                     editor_userinfo.putInt("lastPlayed", 1);
                     editor_userinfo.apply();
                     numberOfSong = 1;
                 } else {
-
                     numberOfSong += 1;
-                    Log.e("numberofsong", "is " + numberOfSong);
                     editor_userinfo.putInt("lastPlayed", numberOfSong);
                     editor_userinfo.apply();
                 }
@@ -418,11 +411,9 @@ public class ActivityRecord extends Activity {
         String userinfo = "User Info" + childNum;
         changeFileName();
         if (checkUserInfo.isUserInfoComplete(this, userinfo)) {
-//			main_activity.sendToast("is complete", this);
             uploadFile();
             suggestingNextPart();
         } else {
-//			main_activity.sendToast("not complete", this);
             showMessageForCompleteingInfo();
         }
     }
@@ -500,21 +491,15 @@ public class ActivityRecord extends Activity {
 
 
             if (type.equals("only")) {
-                dlgAlertFirst.setMessage((Html.fromHtml("در صورتی که امکان و تمایل انجام تست" + "<b>" + "تعامل در حین " + persianAction + "</b>" + " را دارید ادامه را انتخاب کنید ")));
-
-//				dlgAlertFirst.setMessage((Html.fromHtml("Hello " + "<b>" + "World" + "</b>")));
+                dlgAlertFirst.setMessage((Html.fromHtml("در صورتی که امکان و تمایل انجام تست" + "<b>"
+                        + "تعامل در حین " + persianAction + "</b>" + " را دارید ادامه را انتخاب کنید ")));
             } else if (type.equals("interactWithParent")) {
-                dlgAlertFirst.setMessage(Html.fromHtml("در صورتی که امکان و تمایل انجام تست " + "<b>" + "تعامل با سیستم در حین " + persianAction + "</b>" + " را دارید ادامه را انتخاب کنید"));
+                dlgAlertFirst.setMessage(Html.fromHtml("در صورتی که امکان و تمایل انجام تست " + "<b>"
+                        + "تعامل با سیستم در حین " + persianAction + "</b>" + " را دارید ادامه را انتخاب کنید"));
             }
             dlgAlertFirst.setNegativeButton("انصراف", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    //if(checkData()){
-                    //upload
-                    //}
-                    //else{
-                    //open user activity
-                    //}
 
                     finish();
                 }
@@ -583,7 +568,6 @@ public class ActivityRecord extends Activity {
     }
 
     public void stop(View view) {
-        //do nesessary changes of ui
         changingUI();
         hl2.removeCallbacks(playSong);
         if (myPlayer != null && myPlayer.isPlaying())
@@ -606,10 +590,6 @@ public class ActivityRecord extends Activity {
 
             stopBtn.setEnabled(false);
             playBtn.setEnabled(true);
-
-            //upload files
-            Context context = getApplication();
-
 
             Toast.makeText(getApplicationContext(), "پایان ضبط",
                     Toast.LENGTH_SHORT).show();
