@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:2:1-110:12
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:2:1-102:12
 	package
 		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:3:5-38
 		INJECTED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml
@@ -99,7 +99,7 @@ ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:18:5-2
 	android:name
 		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:19:9-64
 application
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:22:5-108:19
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:22:5-100:19
 MERGED from [com.android.support:gridlayout-v7:23.4.0] /home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/23.4.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.4.0] /home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.4.0] /home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
@@ -167,112 +167,96 @@ ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:35:17-
 	android:name
 		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:35:27-74
 activity#com.example.autismtheme.AboutAutismActivity
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:38:9-41:52
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:38:9-40:52
 	android:screenOrientation
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:41:13-49
-	android:noHistory
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:40:13-37
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:40:13-49
 	android:name
 		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:39:13-48
 activity#com.example.autismtheme.HelpActivity
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:42:9-45:52
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:41:9-43:52
 	android:screenOrientation
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:45:13-49
-	android:noHistory
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:44:13-37
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:43:13-49
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:43:13-41
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:42:13-41
 activity#com.example.autismtheme.AboutUsActivity
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:46:9-49:52
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:44:9-46:52
+	android:screenOrientation
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:46:13-49
+	android:name
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:45:13-44
+activity#com.example.autismtheme.UserActivity1
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:47:9-50:70
 	android:screenOrientation
 		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:49:13-49
-	android:noHistory
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:48:13-37
+	android:windowSoftInputMode
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:50:13-68
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:47:13-44
-activity#com.example.autismtheme.UserActivity1
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:50:9-54:70
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:48:13-42
+activity#com.example.autismtheme.UserActivity2
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:51:9-54:71
 	android:screenOrientation
 		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:53:13-49
-	android:noHistory
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:52:13-37
 	android:windowSoftInputMode
 		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:54:13-68
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:51:13-42
-activity#com.example.autismtheme.UserActivity2
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:55:9-59:71
-	android:screenOrientation
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:58:13-49
-	android:noHistory
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:57:13-37
-	android:windowSoftInputMode
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:59:13-68
-	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:56:13-42
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:52:13-42
 activity#com.example.autismtheme.ActivityInteract
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:60:9-63:52
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:55:9-57:52
 	android:screenOrientation
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:63:13-49
-	android:noHistory
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:62:13-37
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:57:13-49
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:61:13-45
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:56:13-45
 activity#com.example.autismtheme.ActivityRecord
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:64:9-68:15
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:58:9-61:15
 	android:screenOrientation
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:67:13-49
-	android:noHistory
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:66:13-37
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:60:13-49
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:65:13-43
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:59:13-43
 service#com.example.autismtheme.UploadService
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:70:9-77:19
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:63:9-69:19
 	android:enabled
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:75:13-35
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:67:13-35
 	android:process
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:74:13-45
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:66:13-45
 	android:exported
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:72:13-36
-	android:noHistory
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:73:13-37
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:65:13-36
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:71:13-42
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:64:13-42
 activity#com.example.autismtheme.SelectRecordingType
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:79:9-84:20
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:71:9-76:20
 	android:screenOrientation
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:82:13-49
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:74:13-49
 	android:label
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:81:13-68
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:73:13-68
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:80:13-48
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:72:13-48
 activity#com.example.autismtheme.SelectingInteractType
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:85:9-90:20
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:77:9-82:20
 	android:screenOrientation
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:88:13-49
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:80:13-49
 	android:label
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:87:13-75
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:79:13-75
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:86:13-50
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:78:13-50
 activity#com.example.autismtheme.selectAction
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:91:9-96:20
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:83:9-88:20
 	android:screenOrientation
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:94:13-49
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:86:13-49
 	android:label
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:93:13-65
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:85:13-65
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:92:13-41
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:84:13-41
 service#com.example.autismtheme.EditUserInfo
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:98:9-103:19
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:90:9-95:19
 	android:enabled
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:100:13-35
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:92:13-35
 	android:exported
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:101:13-36
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:93:13-36
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:99:13-41
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:91:13-41
 meta-data#io.fabric.ApiKey
-ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:105:9-107:72
+ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:97:9-99:72
 	android:value
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:107:13-69
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:99:13-69
 	android:name
-		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:106:13-44
+		ADDED from /home/sajad/Downloads/Autism1/app/src/main/AndroidManifest.xml:98:13-44

@@ -191,6 +191,7 @@ public class ActivityInteract extends Activity {
         String currentDateandTime = sdf.format(new Date());
         fileName = "interact#" + currentDateandTime + "#" + turnCount.toString() + "(" + turns + ")" + ".wav";
         File newFile = new File(getFilesDir() + "/" + getChildNum() + "/" + fileName);
+        Log.e("newFile",newFile.getPath());
         File file = new File(outputFile);
         file.renameTo(newFile);
     }
@@ -229,7 +230,9 @@ public class ActivityInteract extends Activity {
 
     public void accept(View v) {
 
+        Log.e("acceptClicked","yes");
         String userinfo = "User Info" + getChildNum();
+        Log.e("acceptingInteract","yes");
         changeFileName();
         if (checkUserInfo.isUserInfoComplete(this, userinfo)) {
             uploadFile();

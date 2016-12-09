@@ -4,10 +4,6 @@
         "source": "/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/layout/design_navigation_item_subheader.xml"
     },
     {
-        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/layout/page_cry.xml",
-        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/layout/page_cry.xml"
-    },
-    {
         "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/layout/abc_action_menu_item_layout.xml",
         "source": "/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_action_menu_item_layout.xml"
     },
@@ -24,12 +20,12 @@
         "source": "/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_screen_toolbar.xml"
     },
     {
-        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/layout/abc_action_mode_close_item_material.xml",
-        "source": "/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_action_mode_close_item_material.xml"
-    },
-    {
         "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/layout/abc_alert_dialog_button_bar_material.xml",
         "source": "/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/layout/abc_action_mode_close_item_material.xml",
+        "source": "/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/layout/abc_select_dialog_material.xml",
@@ -134,6 +130,10 @@
     {
         "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/layout/about_page.xml",
         "source": "/home/sajad/Downloads/Autism1/app/src/main/res/layout/about_page.xml"
+    },
+    {
+        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/layout/page_record.xml",
+        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/layout/page_record.xml"
     },
     {
         "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/layout/abc_action_bar_title_item.xml",

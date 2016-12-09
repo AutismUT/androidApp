@@ -6522,27 +6522,16 @@ com.crashlytics.android.core.internal.models.ThreadData$FrameData:
     53:59:public ThreadData$FrameData(long,java.lang.String,java.lang.String,long,int)
 com.example.autismtheme.AboutUsActivity:
     android.widget.TextView link
-com.example.autismtheme.ActivityInteract:
-    long changeTurnTime
-    private android.media.MediaPlayer myPlayer
-    private java.lang.String outputFile1
-    private java.lang.String outputFile2
-    private android.widget.Button startBtn
-    private android.widget.Button stopBtn
-    private android.widget.Button playBtn
-    private android.widget.Button stopPlayBtn
-    private android.widget.TextView help
 com.example.autismtheme.BuildConfig
 com.example.autismtheme.CustomFontsLoader:
     9:9:public CustomFontsLoader()
-com.example.autismtheme.DialogKeyListener
 com.example.autismtheme.EditUserInfo$ChangeInfo:
     private int uploaded_files
 com.example.autismtheme.ExtAudioRecorder:
     public static final boolean RECORDING_UNCOMPRESSED
     public static final boolean RECORDING_COMPRESSED
     private static final int TIMER_INTERVAL
-    280:302:public int getMaxAmplitude()
+    282:304:public int getMaxAmplitude()
 com.example.autismtheme.JalaliCalendar:
     public static final int FARVARDIN
     public static final int ORDIBEHESHT

@@ -18695,35 +18695,34 @@ com.example.autismtheme.AboutUsActivity -> com.example.autismtheme.AboutUsActivi
     void onCreate(android.os.Bundle) -> onCreate
     void visibleMoreItems(android.view.View) -> visibleMoreItems
 com.example.autismtheme.ActivityInteract -> com.example.autismtheme.ActivityInteract:
-    android.os.Handler handler_interact -> a
-    android.widget.FrameLayout babyInfo -> b
-    android.widget.FrameLayout parentInfo -> c
-    android.widget.ImageView imageBaby -> d
-    android.widget.ImageView imageParent -> e
-    boolean recordStarted -> f
-    java.lang.String fileName -> g
-    long startTime1 -> h
-    long startTime2 -> i
-    java.lang.Integer time -> j
-    java.lang.Integer turnCount -> k
-    android.widget.SeekBar pb -> l
-    java.lang.String turn -> m
-    android.graphics.drawable.ColorDrawable dark -> n
-    android.graphics.drawable.ColorDrawable light -> o
-    java.lang.String turns -> p
-    android.os.Handler hl -> q
-    java.lang.Runnable run -> r
-    java.lang.String outputFile -> s
-    boolean isRecording -> t
-    boolean finished -> u
-    android.media.MediaPlayer mp -> v
-    java.lang.Runnable run2 -> w
-    int current -> x
-    com.example.autismtheme.ExtAudioRecorder myRecorder -> z
-    int childNum -> A
-    android.widget.FrameLayout frameBaby -> B
-    android.widget.FrameLayout frameParent -> C
-    java.lang.Runnable run3 -> y
+    android.widget.FrameLayout babyInfo -> a
+    android.widget.FrameLayout parentInfo -> b
+    android.widget.ImageView imageBaby -> c
+    android.widget.ImageView imageParent -> d
+    boolean recordStarted -> e
+    java.lang.String fileName -> f
+    long startTime1 -> g
+    long startTime2 -> h
+    java.lang.Integer time -> i
+    java.lang.Integer turnCount -> j
+    android.widget.SeekBar pb -> k
+    java.lang.String turn -> l
+    android.graphics.drawable.ColorDrawable dark -> m
+    android.graphics.drawable.ColorDrawable light -> n
+    java.lang.String turns -> o
+    android.os.Handler hl -> p
+    java.lang.Runnable run -> q
+    java.lang.String outputFile -> r
+    boolean isRecording -> s
+    boolean finished -> t
+    android.media.MediaPlayer mp -> u
+    java.lang.Runnable run2 -> v
+    int current -> w
+    com.example.autismtheme.ExtAudioRecorder myRecorder -> y
+    int childNum -> z
+    android.widget.FrameLayout frameBaby -> A
+    android.widget.FrameLayout frameParent -> B
+    java.lang.Runnable run3 -> x
     void <init>() -> <init>
     void finishRecording(android.view.View) -> finishRecording
     void changeFileName() -> a
@@ -18732,12 +18731,10 @@ com.example.autismtheme.ActivityInteract -> com.example.autismtheme.ActivityInte
     void accept(android.view.View) -> accept
     void recordAgain(android.view.View) -> recordAgain
     void stopParentStartBaby(android.view.View) -> stopParentStartBaby
-    void RestartRecord(android.view.View) -> RestartRecord
     void onPause() -> onPause
     void startRecordingInteract(android.view.View) -> startRecordingInteract
     void onCreate(android.os.Bundle) -> onCreate
     void playAudio(android.view.View) -> playAudio
-    void stopRecordingInteract(android.view.View) -> stopRecordingInteract
     void onResume() -> onResume
     int getChildNum() -> d
     android.widget.FrameLayout access$000(com.example.autismtheme.ActivityInteract) -> a
@@ -18902,7 +18899,7 @@ com.example.autismtheme.ActivityRecord$9 -> com.example.autismtheme.y:
     com.example.autismtheme.ActivityRecord this$0 -> a
     void <init>(com.example.autismtheme.ActivityRecord) -> <init>
     void onClick(android.content.DialogInterface,int) -> onClick
-com.example.autismtheme.AdapterHelp -> com.example.autismtheme.z:
+com.example.autismtheme.AdapterAboutAutism -> com.example.autismtheme.z:
     android.content.Context context -> b
     java.util.ArrayList items -> a
     void <init>(android.content.Context,java.util.ArrayList) -> <init>
@@ -18916,8 +18913,30 @@ com.example.autismtheme.AdapterHelp -> com.example.autismtheme.z:
     android.view.View getGroupView(int,boolean,android.view.View,android.view.ViewGroup) -> getGroupView
     boolean hasStableIds() -> hasStableIds
     boolean isChildSelectable(int,int) -> isChildSelectable
-com.example.autismtheme.AdapterHelp$1 -> com.example.autismtheme.aa:
-com.example.autismtheme.AdapterHelp$Holder -> com.example.autismtheme.ab:
+com.example.autismtheme.AdapterAboutAutism$1 -> com.example.autismtheme.aa:
+com.example.autismtheme.AdapterAboutAutism$Holder -> com.example.autismtheme.ab:
+    android.widget.TextView textViewAnswer -> a
+    android.widget.TextView textViewQuestion -> b
+    android.widget.ImageView imageViewGroupArrow -> c
+    com.example.autismtheme.AdapterAboutAutism this$0 -> d
+    void <init>(com.example.autismtheme.AdapterAboutAutism) -> <init>
+    void <init>(com.example.autismtheme.AdapterAboutAutism,com.example.autismtheme.AdapterAboutAutism$1) -> <init>
+com.example.autismtheme.AdapterHelp -> com.example.autismtheme.ac:
+    android.content.Context context -> b
+    java.util.ArrayList items -> a
+    void <init>(android.content.Context,java.util.ArrayList) -> <init>
+    java.lang.Object getChild(int,int) -> getChild
+    long getChildId(int,int) -> getChildId
+    int getChildrenCount(int) -> getChildrenCount
+    android.view.View getChildView(int,int,boolean,android.view.View,android.view.ViewGroup) -> getChildView
+    java.lang.Object getGroup(int) -> getGroup
+    int getGroupCount() -> getGroupCount
+    long getGroupId(int) -> getGroupId
+    android.view.View getGroupView(int,boolean,android.view.View,android.view.ViewGroup) -> getGroupView
+    boolean hasStableIds() -> hasStableIds
+    boolean isChildSelectable(int,int) -> isChildSelectable
+com.example.autismtheme.AdapterHelp$1 -> com.example.autismtheme.ad:
+com.example.autismtheme.AdapterHelp$Holder -> com.example.autismtheme.ae:
     android.widget.TextView textViewDescription -> a
     android.widget.TextView textViewTitle -> b
     android.widget.ImageView imageViewGroupArrow -> c
@@ -18925,11 +18944,7 @@ com.example.autismtheme.AdapterHelp$Holder -> com.example.autismtheme.ab:
     com.example.autismtheme.AdapterHelp this$0 -> e
     void <init>(com.example.autismtheme.AdapterHelp) -> <init>
     void <init>(com.example.autismtheme.AdapterHelp,com.example.autismtheme.AdapterHelp$1) -> <init>
-com.example.autismtheme.AutismItem -> com.example.autismtheme.ac:
-    java.lang.String question -> a
-    java.lang.String answer -> b
-    void <init>(java.lang.String,java.lang.String) -> <init>
-com.example.autismtheme.CustomFontsLoader -> com.example.autismtheme.ad:
+com.example.autismtheme.CustomFontsLoader -> com.example.autismtheme.af:
     boolean fontsLoaded -> b
     android.graphics.Typeface font -> a
     android.graphics.Typeface getTypeface(android.content.Context) -> a
@@ -18948,7 +18963,7 @@ com.example.autismtheme.EditUserInfo -> com.example.autismtheme.EditUserInfo:
     java.lang.String doHttpUrlConnectionAction(java.lang.String) -> a
     java.lang.Boolean access$000(com.example.autismtheme.EditUserInfo) -> a
     java.lang.String access$100(com.example.autismtheme.EditUserInfo,java.lang.String) -> a
-com.example.autismtheme.EditUserInfo$ChangeInfo -> com.example.autismtheme.ae:
+com.example.autismtheme.EditUserInfo$ChangeInfo -> com.example.autismtheme.ag:
     android.content.SharedPreferences UserInfo -> a
     java.lang.String serverIp -> k
     java.lang.String key_userinfo -> b
@@ -18965,29 +18980,7 @@ com.example.autismtheme.EditUserInfo$ChangeInfo -> com.example.autismtheme.ae:
     void onPostExecute(java.lang.Integer) -> a
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.example.autismtheme.ExpandableAdapter -> com.example.autismtheme.af:
-    android.content.Context context -> b
-    java.util.ArrayList items -> a
-    void <init>(android.content.Context,java.util.ArrayList) -> <init>
-    java.lang.Object getChild(int,int) -> getChild
-    long getChildId(int,int) -> getChildId
-    int getChildrenCount(int) -> getChildrenCount
-    android.view.View getChildView(int,int,boolean,android.view.View,android.view.ViewGroup) -> getChildView
-    java.lang.Object getGroup(int) -> getGroup
-    int getGroupCount() -> getGroupCount
-    long getGroupId(int) -> getGroupId
-    android.view.View getGroupView(int,boolean,android.view.View,android.view.ViewGroup) -> getGroupView
-    boolean hasStableIds() -> hasStableIds
-    boolean isChildSelectable(int,int) -> isChildSelectable
-com.example.autismtheme.ExpandableAdapter$1 -> com.example.autismtheme.ag:
-com.example.autismtheme.ExpandableAdapter$Holder -> com.example.autismtheme.ah:
-    android.widget.TextView textViewAnswer -> a
-    android.widget.TextView textViewQuestion -> b
-    android.widget.ImageView imageViewGroupArrow -> c
-    com.example.autismtheme.ExpandableAdapter this$0 -> d
-    void <init>(com.example.autismtheme.ExpandableAdapter) -> <init>
-    void <init>(com.example.autismtheme.ExpandableAdapter,com.example.autismtheme.ExpandableAdapter$1) -> <init>
-com.example.autismtheme.ExtAudioRecorder -> com.example.autismtheme.ai:
+com.example.autismtheme.ExtAudioRecorder -> com.example.autismtheme.ah:
     int[] sampleRates -> a
     boolean rUncompressed -> b
     android.media.AudioRecord audioRecorder -> c
@@ -19026,12 +19019,12 @@ com.example.autismtheme.ExtAudioRecorder -> com.example.autismtheme.ai:
     int access$600(com.example.autismtheme.ExtAudioRecorder) -> f
     int access$602(com.example.autismtheme.ExtAudioRecorder,int) -> b
     void <clinit>() -> <clinit>
-com.example.autismtheme.ExtAudioRecorder$1 -> com.example.autismtheme.aj:
+com.example.autismtheme.ExtAudioRecorder$1 -> com.example.autismtheme.ai:
     com.example.autismtheme.ExtAudioRecorder this$0 -> a
     void <init>(com.example.autismtheme.ExtAudioRecorder) -> <init>
     void onPeriodicNotification(android.media.AudioRecord) -> onPeriodicNotification
     void onMarkerReached(android.media.AudioRecord) -> onMarkerReached
-com.example.autismtheme.ExtAudioRecorder$State -> com.example.autismtheme.ak:
+com.example.autismtheme.ExtAudioRecorder$State -> com.example.autismtheme.aj:
     com.example.autismtheme.ExtAudioRecorder$State INITIALIZING -> a
     com.example.autismtheme.ExtAudioRecorder$State READY -> b
     com.example.autismtheme.ExtAudioRecorder$State RECORDING -> c
@@ -19046,7 +19039,11 @@ com.example.autismtheme.HelpActivity -> com.example.autismtheme.HelpActivity:
     void <init>() -> <init>
     void onCreate(android.os.Bundle) -> onCreate
     java.util.ArrayList prepareData() -> a
-com.example.autismtheme.HelpItem -> com.example.autismtheme.al:
+com.example.autismtheme.ItemAboutAutism -> com.example.autismtheme.ak:
+    java.lang.String question -> a
+    java.lang.String answer -> b
+    void <init>(java.lang.String,java.lang.String) -> <init>
+com.example.autismtheme.ItemHelp -> com.example.autismtheme.al:
     int image -> a
     java.lang.String titleText -> b
     int description -> c

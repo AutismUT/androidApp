@@ -23,6 +23,7 @@ import android.content.SharedPreferences.Editor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -65,11 +66,12 @@ public class UploadService extends Service {
                 uft.execute(item.fileName, item.childNum);
             }
         }
+
         if (intent != null) {
             //if intent contains information of uploading file just get the name and upload it
             String fileName = intent.getExtras().getString("fileName");
             UploadFileTask uft = new UploadFileTask();
-            uft.execute(getFilesDir() + "/" + getChildNum() + "/" + fileName, getChildNum());
+            uft.execute(getFilesDir() + "/" +getChildNum() + "/" + fileName, getChildNum());
         }
         started = 1;
 
@@ -140,6 +142,7 @@ public class UploadService extends Service {
 
         @Override
         protected Integer doInBackground(Object... arg0) {
+            Log.e("uploaddddding","yes");
             this.existingFileName = (String) arg0[0];
             this.childNum = (Integer) arg0[1];
 
@@ -169,10 +172,14 @@ public class UploadService extends Service {
 
         @Override
         protected void onPostExecute(Integer result) {
+
             if (result == 0) {
+
                 File file = new File(existingFileName);
                 if (file.exists()) {
+                    Log.e("folanfolanshode2","vaghan2");
                     file.delete();
+
                 }
             }
         }
@@ -192,6 +199,7 @@ public class UploadService extends Service {
             int maxBufferSize = 1 * 1024 * 1024;
 
             Log.e("Debug", "try to upload11");
+            Log.e("debug2","yesI'min");
             String urlString = serverIp + "/upload.php?"
                     + "tel='" + UserInfo.getString(key_phonenum, null) + ""
                     + "'&male=" + (1 - UserInfo.getInt(key_gender, 0)) + ""
@@ -212,6 +220,7 @@ public class UploadService extends Service {
                 //------------------ CLIENT REQUEST
                 Log.e("fileExists", existingFileName);
                 File file = new File(existingFileName);
+                Log.e("fileSize"," is "+file.length());
                 if (!file.exists()) {
                     Log.e("fileexists", "no");
                     return -1;

@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
+import android.os.Environment;
 import android.os.Handler;
 import android.text.Html;
 import android.util.Log;
@@ -187,7 +188,7 @@ public class ActivityRecord extends Activity {
         //selecting description text based on recording type
         if (type.equals("interactWithParent")) {
             String first = "لطفا زمانی که کودک در حال ";
-            String second = "است دکمه ضبط صدا را زده و پس از شروع ضبط صدا یکبار نام او را به گونه " +
+            String second = "است دکمه ضبط صدا را زده و پس از شروع ضبط صدا در ثانیه ۱۰ یکبار نام او را به گونه " +
                     " ای که متوجه شود صدا زده و منتظر بمانید تا ضبط صدا " +
                     " پایان یابد.";
             tv.setText(first + middle + second);
@@ -236,7 +237,8 @@ public class ActivityRecord extends Activity {
         String currentDateandTime = sdf.format(new Date());
 
         fileName = action + "#" + type + "#" + currentDateandTime + ".wav";
-        outputFile = getFilesDir() + "/" + getChildNum() + "/" + fileName;
+
+        outputFile = getFilesDir()  + "/" + getChildNum() + "/" + fileName;
 
 
         //define buttons
@@ -369,6 +371,7 @@ public class ActivityRecord extends Activity {
             File newFile = new File(getFilesDir() + "/" + getChildNum() + "/" + fileName);
             File file = new File(outputFile);
             file.renameTo(newFile);
+            Log.e("newFile",newFile.toString());
         } else if (type.equals("interactWithSystem")) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
             String currentDateandTime = sdf.format(new Date());
@@ -381,6 +384,7 @@ public class ActivityRecord extends Activity {
 
     private void uploadFile() {
         final Intent intent = new Intent(this, UploadService.class);
+        Log.e("esmesh",fileName);
         intent.putExtra("fileName", fileName);
         startService(intent);
     }

@@ -3734,10 +3734,8 @@ com.example.autismtheme.ActivityInteract: void finishRecording(android.view.View
 com.example.autismtheme.ActivityInteract: void accept(android.view.View)
 com.example.autismtheme.ActivityInteract: void recordAgain(android.view.View)
 com.example.autismtheme.ActivityInteract: void stopParentStartBaby(android.view.View)
-com.example.autismtheme.ActivityInteract: void RestartRecord(android.view.View)
 com.example.autismtheme.ActivityInteract: void startRecordingInteract(android.view.View)
 com.example.autismtheme.ActivityInteract: void playAudio(android.view.View)
-com.example.autismtheme.ActivityInteract: void stopRecordingInteract(android.view.View)
 com.example.autismtheme.ActivityRecord
 com.example.autismtheme.ActivityRecord: ActivityRecord()
 com.example.autismtheme.ActivityRecord: void start(android.view.View)
@@ -4711,10 +4709,10 @@ com.example.autismtheme.R$layout: int notification_template_lines
 com.example.autismtheme.R$layout: int notification_template_media
 com.example.autismtheme.R$layout: int notification_template_part_chronometer
 com.example.autismtheme.R$layout: int notification_template_part_time
-com.example.autismtheme.R$layout: int page_cry
 com.example.autismtheme.R$layout: int page_interact
 com.example.autismtheme.R$layout: int page_interact_process
 com.example.autismtheme.R$layout: int page_laugh
+com.example.autismtheme.R$layout: int page_record
 com.example.autismtheme.R$layout: int select_dialog_item_material
 com.example.autismtheme.R$layout: int select_dialog_multichoice_material
 com.example.autismtheme.R$layout: int select_dialog_singlechoice_material

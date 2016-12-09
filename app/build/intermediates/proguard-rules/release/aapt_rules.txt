@@ -119,13 +119,13 @@
 # view AndroidManifest.xml #generated:39
 -keep class com.example.autismtheme.AboutAutismActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:47
+# view AndroidManifest.xml #generated:45
 -keep class com.example.autismtheme.AboutUsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:61
+# view AndroidManifest.xml #generated:56
 -keep class com.example.autismtheme.ActivityInteract { <init>(...); }
 
-# view AndroidManifest.xml #generated:65
+# view AndroidManifest.xml #generated:59
 -keep class com.example.autismtheme.ActivityRecord { <init>(...); }
 
 # view res/layout/about_page.xml #generated:104
@@ -152,12 +152,6 @@
 # view res/layout/interact_dialogue.xml #generated:20
 # view res/layout/item_child.xml #generated:6
 # view res/layout/item_group.xml #generated:7
-# view res/layout/page_cry.xml #generated:144
-# view res/layout/page_cry.xml #generated:152
-# view res/layout/page_cry.xml #generated:172
-# view res/layout/page_cry.xml #generated:18
-# view res/layout/page_cry.xml #generated:211
-# view res/layout/page_cry.xml #generated:219
 # view res/layout/page_interact.xml #generated:102
 # view res/layout/page_interact.xml #generated:150
 # view res/layout/page_interact.xml #generated:170
@@ -167,6 +161,12 @@
 # view res/layout/page_interact.xml #generated:257
 # view res/layout/page_interact.xml #generated:77
 # view res/layout/page_interact.xml #generated:93
+# view res/layout/page_record.xml #generated:145
+# view res/layout/page_record.xml #generated:153
+# view res/layout/page_record.xml #generated:173
+# view res/layout/page_record.xml #generated:18
+# view res/layout/page_record.xml #generated:212
+# view res/layout/page_record.xml #generated:220
 # view res/layout/spinner_item.xml #generated:20
 # view res/layout/user_page1.xml #generated:104
 # view res/layout/user_page1.xml #generated:126
@@ -186,43 +186,43 @@
 # view res/layout/user_page2.xml #generated:69
 -keep class com.example.autismtheme.CustomTextView { <init>(...); }
 
-# view AndroidManifest.xml #generated:94
+# view AndroidManifest.xml #generated:86
 -keep class com.example.autismtheme.EditUserInfo { <init>(...); }
 
-# view AndroidManifest.xml #generated:43
+# view AndroidManifest.xml #generated:42
 -keep class com.example.autismtheme.HelpActivity { <init>(...); }
 
 # view AndroidManifest.xml #generated:28
 -keep class com.example.autismtheme.Receiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:78
+# view AndroidManifest.xml #generated:70
 -keep class com.example.autismtheme.SelectRecordingType { <init>(...); }
 
-# view AndroidManifest.xml #generated:83
+# view AndroidManifest.xml #generated:75
 -keep class com.example.autismtheme.SelectingInteractType { <init>(...); }
 
-# view AndroidManifest.xml #generated:70
+# view AndroidManifest.xml #generated:63
 -keep class com.example.autismtheme.UploadService { <init>(...); }
 
-# view AndroidManifest.xml #generated:51
+# view AndroidManifest.xml #generated:48
 -keep class com.example.autismtheme.UserActivity1 { <init>(...); }
 
-# view AndroidManifest.xml #generated:56
+# view AndroidManifest.xml #generated:52
 -keep class com.example.autismtheme.UserActivity2 { <init>(...); }
 
 # view AndroidManifest.xml #generated:30
 -keep class com.example.autismtheme.main_activity { <init>(...); }
 
-# view AndroidManifest.xml #generated:88
+# view AndroidManifest.xml #generated:80
 -keep class com.example.autismtheme.selectAction { <init>(...); }
 
 # onClick res/layout/page_interact.xml #generated:283
 -keepclassmembers class * { *** accept(...); }
 
-# onClick res/layout/page_cry.xml #generated:197
+# onClick res/layout/page_record.xml #generated:198
 -keepclassmembers class * { *** acceptInteractOrNot(...); }
 
-# onClick res/layout/page_cry.xml #generated:190
+# onClick res/layout/page_record.xml #generated:191
 -keepclassmembers class * { *** cancelRecord(...); }
 
 # onClick res/layout/selectingchildmenu.xml #generated:50
@@ -253,9 +253,9 @@
 # onClick res/layout/activity_select_action.xml #generated:108
 -keepclassmembers class * { *** openTestWithInteract(...); }
 
-# onClick res/layout/page_cry.xml #generated:50
-# onClick res/layout/page_cry.xml #generated:67
-# onClick res/layout/page_cry.xml #generated:90
+# onClick res/layout/page_record.xml #generated:50
+# onClick res/layout/page_record.xml #generated:67
+# onClick res/layout/page_record.xml #generated:91
 -keepclassmembers class * { *** play(...); }
 
 # onClick res/layout/page_interact.xml #generated:230
@@ -270,7 +270,7 @@
 # onClick res/layout/page_interact.xml #generated:129
 -keepclassmembers class * { *** stopParentStartBaby(...); }
 
-# onClick res/layout/page_cry.xml #generated:107
+# onClick res/layout/page_record.xml #generated:108
 -keepclassmembers class * { *** stopPlay(...); }
 
 # onClick res/layout/user_page1.xml #generated:362

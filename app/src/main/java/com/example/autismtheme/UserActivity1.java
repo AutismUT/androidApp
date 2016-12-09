@@ -378,9 +378,13 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
         if (editor_userinfo == null)
             editor_userinfo = UserInfo.edit();
         try {
-            int ageNumber = Integer.parseInt(age.getText().toString());
+            Integer ageNumber = Integer.parseInt(age.getText().toString());
             int monthNumber = Integer.parseInt(month.getText().toString());
             int dayNumber = Integer.parseInt(day.getText().toString());
+            if(ageNumber.toString().length()<4){
+                alertDialog.setMessage("تاریخ تولد باید ۴ رقمی باشد").show();
+                return false;
+            }
             if(monthNumber > 12 || monthNumber < 1 || dayNumber < 1 || dayNumber > 31){
                 alertDialog.setMessage("تاریخ تولد صحیح نیست").show();
                 return false;
