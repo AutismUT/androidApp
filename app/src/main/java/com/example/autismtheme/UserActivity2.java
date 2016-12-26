@@ -378,15 +378,19 @@ public class UserActivity2 extends Activity implements OnItemSelectedListener {
 		if (editor_userinfo == null)
 			editor_userinfo = UserInfo.edit();
 		try {
-			int ageNumber = Integer.parseInt(age.getText().toString());
+			Integer ageNumber = Integer.parseInt(age.getText().toString());
 			int monthNumber = Integer.parseInt(month.getText().toString());
 			int dayNumber = Integer.parseInt(day.getText().toString());
+			if(ageNumber.toString().length()<4){
+				alertDialog.setMessage("تاریخ تولد باید ۴ رقمی باشد").show();
+				return false;
+			}
 			if(monthNumber > 12 || monthNumber < 1 || dayNumber < 1 || dayNumber > 31){
 				alertDialog.setMessage("تاریخ تولد صحیح نیست").show();
 				return false;
 			}
-			if (ageNumber < Year-5 || ageNumber > Year) {
-				alertDialog.setMessage("سن کودک باید کمتر از ۵ سال باشد").show();
+			if (ageNumber < Year-7 || ageNumber > Year) {
+				alertDialog.setMessage("سن کودک باید کمتر از ۷ سال باشد").show();
 				return false;
 			}
 		} catch (NumberFormatException nfe) {
@@ -481,7 +485,7 @@ public class UserActivity2 extends Activity implements OnItemSelectedListener {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				Intent in = new Intent(UserActivity2.this, EditUserInfo.class);
-				in.putExtra("childNum", "2");
+				in.putExtra("childNum", "1");
 				UserActivity2.this.startService(in);
 				saveData();
 				uploadFile();
@@ -519,6 +523,10 @@ public class UserActivity2 extends Activity implements OnItemSelectedListener {
 		else {
 			finish();
 		}
+
+//
+
+
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 package com.example.autismtheme;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
 
@@ -9,6 +11,9 @@ import java.util.ArrayList;
 public class HelpActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+
+
 		setContentView(R.layout.help_page);
 		ArrayList<ItemHelp> items = prepareData();
 		AdapterHelp adapterHelp = new AdapterHelp(this,items);

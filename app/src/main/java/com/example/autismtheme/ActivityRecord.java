@@ -428,7 +428,7 @@ public class ActivityRecord extends Activity {
         builder.setCancelable(false);
         builder.setItems(new CharSequence[]
                         {"گرسنگی", "تشنگی", "خواب آلودگی یا کم خوابی", "درد یا بیماری",
-                                "کثیف بودن", "بهانه گیری", "عدم تمایل به همکاری با والدین", "سایر", "نمیدانم"
+                                "کثیف بودن", "بهانه گیری", "عدم تمایل به همکاری با والدین","واکسیناسیون", "ترس" ,"سایر", "نمیدانم"
                                 , "پاسخ نمیدهم"},
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -460,12 +460,18 @@ public class ActivityRecord extends Activity {
                                 cryingReason = 7;
                                 break;
                             case 8:
-                                cryingReason = 8;
+                                cryingReason = 11;
                                 break;
                             case 9:
-                                cryingReason = 9;
+                                cryingReason = 12;
                                 break;
                             case 10:
+                                cryingReason = 8;
+                                break;
+                            case 11:
+                                cryingReason = 9;
+                                break;
+                            case 12:
                                 cryingReason = 10;
                                 break;
                         }

@@ -2,11 +2,130 @@
 <items version="2" >
 
     <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="7c4c1fcc34aca536e3389c31527fb3c941b80266">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-gridlayout-v7-23.4.0_40c9923938f69d9dd127c0df7a59c31f26dd7963/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/crashlytics-core/2.3.11/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e3e366ad917b1fd4de5f1a0626d4e9af903dba52">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.crashlytics.sdk.android-crashlytics-core-2.3.11_db2be22821f56e455f1bb6b229f1445415137a17/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_e8f2bce86c49c5c021b433aa1605be60aebfaebb/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/answers/1.3.9/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e3376f705dc1863a8782faf275e56f188b8129eb">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.crashlytics.sdk.android-answers-1.3.9_337ccc4f745d3f21418cf76e7495af073bb94aeb/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_6a2a3380a6f6287b67531af70360b373bb7ab46c/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/glide-3.7.0_066040240fe1e48168c0f94ea7a91d55d088efe7/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="2773381df71e767af0d91f497ed5c2d1994cc283">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c98f49716ad71902613d3b0ba3a0211935c6c5ea/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_1cfed3c7b10b11f06a9f94f577a73b8ef101dd22/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_bfbf8ba96bd42554e6f5edad2bfe0bec111002a3/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_770f99571ea31700dc60f1066a38a30b48aa072d/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_862e81c0c1059e32c97e81498fc7cd64764d5866/classes.dex" />
+    </item>
+    <item
         jar="/home/sajad/Downloads/Autism1/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="a1b899953597aea40e22bdb87229489c0ec4c7be">
-        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_f02f1d16a81851a296938a281d304950f20aecee.jar" />
+        sha1="a3383fc2c96d25514fdfb40e66c1238ddab31de5">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f02f1d16a81851a296938a281d304950f20aecee/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/crashlytics/2.6.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a637ea73d78e58f13decdc721b01817d39941f10">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.crashlytics.sdk.android-crashlytics-2.6.2_3151a072161f480badfc63bd5c734f35429d7586/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.crashlytics.sdk.android/beta/1.2.2/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b42cf2134829f715edfa2adaf0ee246631322dba">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.crashlytics.sdk.android-beta-1.2.2_bdf7a643b2d38eb139521078fbe1229bc8e65ccc/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-23.4.0_c68f51cbc254e6661215c19725b5b150e81c8edf/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_e0b9ebd0421d2fedc6d0ace5788e35a400c686d7/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.3.13/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="23e3acde10f4cf52778f8dc88107fb96459f2392">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/io.fabric.sdk.android-fabric-1.3.13_e669c3baa750c2c3a370ed827e4abaee86f28301/classes.dex" />
+    </item>
+    <item
+        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_110de9a16f34f41b246feae8a4f5234e7ffe9223/classes.dex" />
     </item>
 
 </items>

@@ -29,6 +29,7 @@ import android.util.Log;
 
 public class UploadService extends Service {
     int started = -1;
+    SharedPreferences UserInfo;
 
     private int getChildNum(){
         // TODO Auto-generated method stub
@@ -36,7 +37,9 @@ public class UploadService extends Service {
         String key_child = "childNumer";
         String key_public = "publicInfos";
         PublicInfo = getSharedPreferences(key_public, Context.MODE_PRIVATE);
+        Log.e("debug child",  " info is "+PublicInfo.getInt(key_child, 0));
         return PublicInfo.getInt(key_child, 0);
+
     }
 
     @Override
@@ -44,6 +47,11 @@ public class UploadService extends Service {
 
         //this was a bug that makes app crash
         //this is called with intent==null when application is killed
+
+        this.UserInfo =  getApplicationContext().getSharedPreferences("User Info" + 1, Context.MODE_PRIVATE);
+//        this.userEditor.putString("ajab","eival");
+//        this.userEditor.commit();
+
         if (started == -1 && intent == null) {
             ArrayList<Item> items;
             items = new ArrayList<>();
@@ -58,7 +66,7 @@ public class UploadService extends Service {
             files = secondFolder.listFiles();
             for (File file : files) {
                 file.getPath();
-                items.add(new Item(2, file.getParent()));
+                items.add(new Item(2, file.getPath()));
                 Log.e("files", file.getPath());
             }
             for (Item item : items) {
@@ -122,7 +130,6 @@ public class UploadService extends Service {
 
     public class UploadFileTask extends AsyncTask<Object, Integer, Integer> {
 
-        SharedPreferences UserInfo;
         String key_is_upload = "Is Upload";
         //created as keys for shared preferences
         String key_userinfo = "User Info";
@@ -134,20 +141,20 @@ public class UploadService extends Service {
         String key_autistic = "Autistic Key";
         String key_id = "ID Key";
         String existingFileName;
-        Editor editor_userinfo;
         private String serverIp = "http://helpautism.ir/autism-android";
         private int uploaded_files;
         private int childNum;
 
 
+
         @Override
         protected Integer doInBackground(Object... arg0) {
+
+
             Log.e("uploaddddding","yes");
             this.existingFileName = (String) arg0[0];
             this.childNum = (Integer) arg0[1];
 
-            this.UserInfo = getSharedPreferences(key_userinfo + childNum, Context.MODE_PRIVATE);
-            this.editor_userinfo = UserInfo.edit();
 
             //every 10 second check internet  connection
             while (!isInternetConnect()) {
@@ -198,7 +205,9 @@ public class UploadService extends Service {
             byte[] buffer;
             int maxBufferSize = 1 * 1024 * 1024;
 
-            Log.e("Debug", "try to upload11");
+            Log.e("Debug", "try to uploadid "+UserInfo.getString(key_id, null));
+            Log.e("Debug", "try to uploadnum "+UserInfo.getString(key_phonenum, null));
+
             Log.e("debug2","yesI'min");
             String urlString = serverIp + "/upload.php?"
                     + "tel='" + UserInfo.getString(key_phonenum, null) + ""
@@ -307,10 +316,14 @@ public class UploadService extends Service {
 
                     //get ID
                     String[] resp = str.split(" ");
+                    Log.e("debug","response is"+resp[0]);
                     if (Integer.parseInt(resp[0]) > 0) {
-                        editor_userinfo.putString(key_id, resp[0].trim());
-                        editor_userinfo.apply();
-
+                        Log.e("debug","response is2"+resp[0]);
+                        Editor userEditor = UserInfo.edit();
+                        userEditor.putString(key_id, resp[0].trim());
+                        userEditor.commit();
+                        String id = UserInfo.getString(key_id, null);
+                        Log.e("debug"," getting id "+id);
                     } else {
                         setIsUpload();
                     }
@@ -345,9 +358,9 @@ public class UploadService extends Service {
 
         private void setIsUpload() {
 
-
-            editor_userinfo.putString(key_is_upload, "1");
-            editor_userinfo.apply();
+            Editor userEditor = UserInfo.edit();
+            userEditor.putString(key_is_upload, "1");
+            userEditor.commit();
 
 
         }
