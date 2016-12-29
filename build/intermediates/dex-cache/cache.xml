@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
-
-    <item
-        jar="/home/sajad/Downloads/Autism1/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="4a3cdd5462615d2f3e5ebdc5e0d6a12cdc7320b0">
-        <dex dex="/home/sajad/Downloads/Autism1/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_f02f1d16a81851a296938a281d304950f20aecee.jar" />
-    </item>
-
-</items>
+<items version="2" />

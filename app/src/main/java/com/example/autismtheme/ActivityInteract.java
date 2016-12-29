@@ -419,7 +419,7 @@ public class ActivityInteract extends Activity {
 
 
 
-        final SharedPreferences sharedPreferences = getSharedPreferences("main", Context.MODE_PRIVATE);
+        final SharedPreferences sharedPreferences = getSharedPreferences("main", Context.MODE_MULTI_PROCESS);
         //check for showing dialog or not
         if (sharedPreferences.getInt("interactAccept", -1) == -1) {
             //generating dialog
@@ -535,7 +535,7 @@ public class ActivityInteract extends Activity {
         SharedPreferences PublicInfo;
         String key_child = "childNumer";
         String key_public = "publicInfos";
-        PublicInfo = getSharedPreferences(key_public, Context.MODE_PRIVATE);
+        PublicInfo = getSharedPreferences(key_public, Context.MODE_MULTI_PROCESS);
         return PublicInfo.getInt(key_child, 0);
 
     }

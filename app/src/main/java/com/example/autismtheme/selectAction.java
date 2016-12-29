@@ -47,7 +47,7 @@ public class selectAction extends Activity {
 
     private String buttonText(Integer i){
         try {
-            UserInfo = getSharedPreferences(key_userinfo + i.toString(), Context.MODE_PRIVATE);
+            UserInfo = getSharedPreferences(key_userinfo + i.toString(), Context.MODE_MULTI_PROCESS);
             String date = UserInfo.getString(key_age, "NULL");
             if(date.equals("NULL")){
                 throw new Exception("null");
@@ -158,7 +158,7 @@ public class selectAction extends Activity {
 
                 SharedPreferences.Editor editor_publicInfo;
 
-                PublicInfo=getSharedPreferences(key_public, Context.MODE_PRIVATE);
+                PublicInfo=getSharedPreferences(key_public, Context.MODE_MULTI_PROCESS);
                 editor_publicInfo = PublicInfo.edit();
                 Log.e("ActivityRRR", "user" + childNum);
                 editor_publicInfo.putInt(key_child, childNum);
@@ -176,7 +176,7 @@ public class selectAction extends Activity {
 
                 SharedPreferences.Editor editor_publicInfo;
 
-                PublicInfo = getSharedPreferences(key_public, Context.MODE_PRIVATE);
+                PublicInfo = getSharedPreferences(key_public, Context.MODE_MULTI_PROCESS);
                 editor_publicInfo = PublicInfo.edit();
                 Log.e("ActivityRRR", "user" + childNum);
                 editor_publicInfo.putInt(key_child, childNum);

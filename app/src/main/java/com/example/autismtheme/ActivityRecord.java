@@ -137,9 +137,9 @@ public class ActivityRecord extends Activity {
         setContentView(R.layout.page_record);
 
 
+
         String key_userinfo = "User Info" + getChildNum();
-        UserInfo = getSharedPreferences(key_userinfo, Context.MODE_PRIVATE);
-        editor_userinfo = UserInfo.edit();
+        UserInfo = getSharedPreferences(key_userinfo, Context.MODE_MULTI_PROCESS);
 
 
         //showing test number
@@ -152,8 +152,7 @@ public class ActivityRecord extends Activity {
         numberOfSong = UserInfo.getInt("lastPlayed", -1);
         //initializing numberOfSong
         if (numberOfSong == -1) {
-            editor_userinfo.putInt("lastPlayed", 1);
-            editor_userinfo.apply();
+            UserInfo.edit().putInt("lastPlayed", 1).apply();
             numberOfSong = 1;
         }
 
@@ -269,7 +268,7 @@ public class ActivityRecord extends Activity {
         SharedPreferences PublicInfo;
         String key_child = "childNumer";
         String key_public = "publicInfos";
-        PublicInfo = getSharedPreferences(key_public, Context.MODE_PRIVATE);
+        PublicInfo = getSharedPreferences(key_public, Context.MODE_MULTI_PROCESS);
         return PublicInfo.getInt(key_child, 0);
 
     }
@@ -368,6 +367,7 @@ public class ActivityRecord extends Activity {
             fileName = action + "#" + type + "#" + currentDateandTime + "#" + cryingReason + ".wav";
             File newFile = new File(getFilesDir() + "/" + getChildNum() + "/" + fileName);
             File file = new File(outputFile);
+            Log.e("newFile", " is "+newFile.toString());
             file.renameTo(newFile);
         } else if (type.equals("interactWithSystem")) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
@@ -391,13 +391,11 @@ public class ActivityRecord extends Activity {
         } else {
             if (type.equals("interactWithSystem")) {
                 if (numberOfSong == 4) {
-                    editor_userinfo.putInt("lastPlayed", 1);
-                    editor_userinfo.apply();
+                    UserInfo.edit().putInt("lastPlayed", 1).apply();
                     numberOfSong = 1;
                 } else {
                     numberOfSong += 1;
-                    editor_userinfo.putInt("lastPlayed", numberOfSong);
-                    editor_userinfo.apply();
+                    UserInfo.edit().putInt("lastPlayed", numberOfSong).apply();
                 }
             }
             gauideforCompletingInfo();

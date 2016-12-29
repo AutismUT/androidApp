@@ -16,7 +16,7 @@ public class checkUserInfo {
         String key_background="Background Key";
         String key_phonenum="Phone Num";
         String key_autistic="Autistic Key";
-        SharedPreferences UserInfo =context.getSharedPreferences(key_userinfo, Context.MODE_PRIVATE);
+        SharedPreferences UserInfo =context.getSharedPreferences(key_userinfo, Context.MODE_MULTI_PROCESS);
         String birthiday = (UserInfo.getString(key_age, null));
         int gender = (UserInfo.getInt(key_gender, -1));
         int background = (UserInfo.getInt(key_background, -1));

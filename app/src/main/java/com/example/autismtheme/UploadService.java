@@ -24,7 +24,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.IBinder;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+import android.widget.Toast;
 
 public class UploadService extends Service {
     int started = -1;
@@ -34,15 +36,19 @@ public class UploadService extends Service {
         SharedPreferences PublicInfo;
         String key_child = "childNumer";
         String key_public = "publicInfos";
-        PublicInfo = getSharedPreferences(key_public, Context.MODE_PRIVATE);
+        PublicInfo = getSharedPreferences(key_public, Context.MODE_MULTI_PROCESS);
         return PublicInfo.getInt(key_child, 0);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        //this was a bug that makes app crash
+        //this was a bug that makes app crashgetChild
         //this is called with intent==null when application is killed
+
+        SharedPreferences UserInfo = getApplicationContext().getSharedPreferences("User Info"+getChildNum(), Context.MODE_MULTI_PROCESS);
+        Log.e("userInfoup"," is "+UserInfo.getAll().toString());
+
         if (started == -1 && intent == null) {
             ArrayList<Item> items;
             items = new ArrayList<>();
@@ -68,6 +74,8 @@ public class UploadService extends Service {
         if (intent != null) {
             //if intent contains information of uploading file just get the name and upload it
             String fileName = intent.getExtras().getString("fileName");
+            int childNum = intent.getExtras().getInt("childNum");
+            Log.e("backgroundIntent", " is "+intent.getExtras().getString("childNum"));
             UploadFileTask uft = new UploadFileTask();
             uft.execute(getFilesDir() + "/" + getChildNum() + "/" + fileName, getChildNum());
         }
@@ -118,6 +126,8 @@ public class UploadService extends Service {
         }
     }
 
+
+
     public class UploadFileTask extends AsyncTask<Object, Integer, Integer> {
 
         SharedPreferences UserInfo;
@@ -142,9 +152,11 @@ public class UploadService extends Service {
         protected Integer doInBackground(Object... arg0) {
             this.existingFileName = (String) arg0[0];
             this.childNum = (Integer) arg0[1];
+            Log.e("backgroundNum", " is "+childNum);
 
-            this.UserInfo = getSharedPreferences(key_userinfo + childNum, Context.MODE_PRIVATE);
-            this.editor_userinfo = UserInfo.edit();
+            UserInfo = getApplicationContext().getSharedPreferences(key_userinfo + childNum, Context.MODE_MULTI_PROCESS);
+            Log.e("phoneNum"," is "+ UserInfo.getString(key_phonenum,null));
+            editor_userinfo = UserInfo.edit();
 
             //every 10 second check internet  connection
             while (!isInternetConnect()) {
@@ -178,6 +190,11 @@ public class UploadService extends Service {
         }
 
 
+
+        private void settingId(String input){
+            editor_userinfo.putString(key_id, input).apply();
+        }
+
         private int doUpload(int first) {
 
             HttpURLConnection conn = null;
@@ -190,6 +207,7 @@ public class UploadService extends Service {
             int bytesRead, bytesAvailable, bufferSize;
             byte[] buffer;
             int maxBufferSize = 1 * 1024 * 1024;
+
 
             Log.e("Debug", "try to upload11");
             String urlString = serverIp + "/upload.php?"
@@ -284,6 +302,7 @@ public class UploadService extends Service {
                 inError = null;
                 if (status != HttpURLConnection.HTTP_OK) {
                     inError = conn.getErrorStream();
+                    return -1;
 //					for (int i = 0; i < inError.available(); i++) {
 //						Log.e("error"," is "+inError.read());
 //					}
@@ -295,16 +314,19 @@ public class UploadService extends Service {
                 while ((str = inStream.readLine()) != null) {
 
                     Log.e("Debug", "Server Response " + str);
+//                    Toast.makeText(getApplicationContext(),"فایل آپلود شد",Toast.LENGTH_SHORT).show();
 
                     //get ID
+//                    Log.e("userInfo1"," is "+UserInfo.getAll().toString());
                     String[] resp = str.split(" ");
-                    if (Integer.parseInt(resp[0]) > 0) {
-                        editor_userinfo.putString(key_id, resp[0].trim());
-                        editor_userinfo.apply();
+                    if (Integer.parseInt(resp[0]) > 0)
+                    {
+                       settingId(resp[0].trim());
 
                     } else {
                         setIsUpload();
                     }
+//                    Log.e("all keys1"," is "+UserInfo.getAll().toString());
 
                     break;
 
@@ -325,7 +347,7 @@ public class UploadService extends Service {
                 return -1;
             }
             catch (Exception exception){
-                Log.e("folan","error");
+                Log.e("folan",exception.getMessage());
                 return -1;
             }
 
@@ -337,8 +359,7 @@ public class UploadService extends Service {
         private void setIsUpload() {
 
 
-            editor_userinfo.putString(key_is_upload, "1");
-            editor_userinfo.apply();
+//            editor_userinfo.putString(key_is_upload, "1").commit();
 
 
         }

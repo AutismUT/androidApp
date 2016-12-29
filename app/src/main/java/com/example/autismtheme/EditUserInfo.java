@@ -74,7 +74,7 @@ public class EditUserInfo extends Service {
         protected Integer doInBackground(Void... arg0) {
 
 
-            UserInfo = getSharedPreferences(key_userinfo + childNum, Context.MODE_PRIVATE);
+            UserInfo = getSharedPreferences(key_userinfo + childNum, Context.MODE_MULTI_PROCESS);
             editor_userinfo = UserInfo.edit();
 
             //every 10 second check internet  connection

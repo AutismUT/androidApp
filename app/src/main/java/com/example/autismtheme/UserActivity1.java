@@ -165,10 +165,18 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
         dlgAlert.create().show();
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
+
+
+        UserInfo = getApplicationContext().getSharedPreferences(key_userinfo, Context.MODE_MULTI_PROCESS);
+        editor_userinfo = UserInfo.edit();
+
+        Log.e("userInfo"," is "+UserInfo.getAll().toString());
+
 
         setContentView(R.layout.user_page1);
 
@@ -196,7 +204,7 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
             fileName = getIntent().getExtras().getString("fileName");
         }
         //completing declaration of Shared Preference: User Info
-        UserInfo = getSharedPreferences(key_userinfo, Context.MODE_PRIVATE);
+
         edittext_phonenum = (EditText) findViewById(R.id.editText_phoneNum);
         edittext_phonenum.addTextChangedListener(tw);
         ////////////Getting IMSI\\\\\\\\\\\\
@@ -209,7 +217,7 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
 //				et.setText(phoneNumber);
 //				editor_userinfo = UserInfo.edit();
 //				editor_userinfo.putString(key_phonenum, phoneNumber);
-//				editor_userinfo.apply();
+//				editor_userinfo.commit();
 //			}
 //		}
 
@@ -329,23 +337,22 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
     }
 
 
-    public void checkUnSetValues() {
-        editor_userinfo = UserInfo.edit();
-        if (UserInfo.getInt(key_gender, -1) == -1)
-            editor_userinfo.putInt(key_gender, 0);
-        if (UserInfo.getInt(key_background, -1) == -1)
-            editor_userinfo.putInt(key_background, 0);
-        if (UserInfo.getInt(key_autistic, -1) == -1)
-            editor_userinfo.putInt(key_autistic, 0);
-        editor_userinfo.apply();
-    }
+//    public void checkUnSetValues() {
+//        if (UserInfo.getInt(key_gender, -1) == -1)
+//            editor_userinfo.putInt(key_gender, 0);
+//        if (UserInfo.getInt(key_background, -1) == -1)
+//            editor_userinfo.putInt(key_background, 0);
+//        if (UserInfo.getInt(key_autistic, -1) == -1)
+//            editor_userinfo.putInt(key_autistic, 0);
+//        editor_userinfo.commit();
+//    }
 
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
                                long arg3) {
 
         //editor for saving user info in the shared preference
-        editor_userinfo = UserInfo.edit();
+
 
         switch (arg0.getId()) {
             case (R.id.spinner_gender): {
@@ -374,9 +381,9 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
 
 
 
+
+
     private boolean checkValidation(){
-        if (editor_userinfo == null)
-            editor_userinfo = UserInfo.edit();
         try {
             int ageNumber = Integer.parseInt(age.getText().toString());
             int monthNumber = Integer.parseInt(month.getText().toString());
@@ -410,8 +417,6 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
     }
 
     private void saveData() {
-        if (editor_userinfo == null)
-            editor_userinfo = UserInfo.edit();
 
         String birthDay =  age.getText().toString() + "/" + month.getText().toString()
                 + "/" + day.getText().toString();
@@ -439,8 +444,6 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
 
     private boolean dataChanged(){
         boolean temp = false;
-        if (editor_userinfo == null)
-            editor_userinfo = UserInfo.edit();
 
         String birthDay =  age.getText().toString() + "/" + month.getText().toString()
                 + "/" + day.getText().toString();
@@ -472,7 +475,7 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
         dlgAlert.setPositiveButton("در حال وارد کردن اطلاعات کودک جدید هستم", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                UserInfo.edit().remove("ID Key").commit();
+                editor_userinfo.remove("ID Key").apply();
                 saveData();
                 uploadFile();
             }
@@ -513,8 +516,8 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
             } else {
                 saveData();
                 uploadFile();
-
             }
+            Log.e("all keys"," is "+UserInfo.getAll().toString());
         }
         else {
             finish();

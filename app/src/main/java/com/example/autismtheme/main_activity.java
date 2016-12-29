@@ -5,11 +5,14 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -32,6 +35,9 @@ public class main_activity extends Activity implements OnClickListener {
 
     PendingIntent pendingIntent;
     AlarmManager am;
+    public final static String receivingId = "receiveId";
+
+
 
     public static void sendToast(String input, Context context) {
         Toast.makeText(context, input, Toast.LENGTH_SHORT).show();
@@ -43,6 +49,8 @@ public class main_activity extends Activity implements OnClickListener {
         super.onResume();
         //cancel alarm manager for showing notification
         am.cancel(pendingIntent);
+
+
     }
 
     @Override
@@ -54,6 +62,7 @@ public class main_activity extends Activity implements OnClickListener {
                 , am.INTERVAL_DAY * 10
                 , pendingIntent);
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +88,7 @@ public class main_activity extends Activity implements OnClickListener {
 
 
         //showing box for first confirmation of user
-        final SharedPreferences sharedPreferences = getSharedPreferences("main", Context.MODE_PRIVATE);
+        final SharedPreferences sharedPreferences = getSharedPreferences("main", Context.MODE_MULTI_PROCESS);
 
 
         //check whether user has accepted before or not
@@ -153,12 +162,12 @@ public class main_activity extends Activity implements OnClickListener {
             startActivity(int_info);
         }
         if (arg0.getId() == R.id.upload_button) {
-            Log.e("BBBBB", "user activity1");
+            Log.e("BBBBB", "user activity2");
             startActivity(int_upload);
 
         }
         if (arg0.getId() == R.id.user_button) {
-            Log.e("BBBBB", "user activity2");
+            Log.e("BBBBB", "user activity1");
             startActivity(int_user);
         }
         if (arg0.getId() == R.id.voice_recorder_button) {
