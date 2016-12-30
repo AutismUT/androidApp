@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="right|center">
+
+    <com.example.autismtheme.CustomTextView
+        android:id="@+id/text_view_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/image_view_arrow_group"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"/>
+
+    <ImageView
+        android:id="@+id/image_view_arrow_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:paddingBottom="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="20dp"
+        android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
+
+</RelativeLayout>

@@ -90,7 +90,7 @@ public class EditUserInfo extends Service {
                 String urlString = serverIp+"/edit_user.php?"
                         + "&tel='"+UserInfo.getString(key_phonenum, null)+""
                         + "'&male="+(1- UserInfo.getInt(key_gender, 0))+""
-                        + "&back="+(2 - UserInfo.getInt(key_background, 0))+""
+                        + "&back="+(UserInfo.getInt(key_background, 0))+""
                         + "&age='"+(UserInfo.getString(key_age, "not set"))+"'"
                         +"&id="+UserInfo.getString(key_id, null).trim()+""
                         +"&autistic="+UserInfo.getInt(key_autistic, 0);

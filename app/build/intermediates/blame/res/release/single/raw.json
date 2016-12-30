@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/raw/second.wav",
+        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/raw/second.wav"
+    },
+    {
+        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/raw/forth.mp3",
+        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/raw/forth.mp3"
+    },
+    {
+        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/raw/third.wav",
+        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/raw/third.wav"
+    },
+    {
+        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/release/raw/first.wav",
+        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/raw/first.wav"
+    }
+]

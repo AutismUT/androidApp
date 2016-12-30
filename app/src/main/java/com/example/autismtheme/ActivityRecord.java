@@ -186,7 +186,7 @@ public class ActivityRecord extends Activity {
         //selecting description text based on recording type
         if (type.equals("interactWithParent")) {
             String first = "لطفا زمانی که کودک در حال ";
-            String second = "است دکمه ضبط صدا را زده و پس از شروع ضبط صدا یکبار نام او را به گونه " +
+            String second = "است دکمه ضبط صدا را زده و پس از شروع ضبط صدا در ثانیه ۱۰ یکبار نام او را به گونه " +
                     " ای که متوجه شود صدا زده و منتظر بمانید تا ضبط صدا " +
                     " پایان یابد.";
             tv.setText(first + middle + second);
@@ -231,11 +231,7 @@ public class ActivityRecord extends Activity {
 
         childNum = getChildNum();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
-        String currentDateandTime = sdf.format(new Date());
 
-        fileName = action + "#" + type + "#" + currentDateandTime + ".wav";
-        outputFile = getFilesDir() + "/" + getChildNum() + "/" + fileName;
 
 
         //define buttons
@@ -278,6 +274,14 @@ public class ActivityRecord extends Activity {
 
         run.run();
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd#HH_mm_ss");
+        String currentDateandTime = sdf.format(new Date());
+
+        fileName = action + "#" + type + "#" + currentDateandTime + ".wav";
+        outputFile = getFilesDir() + "/" + getChildNum() + "/" + fileName;
+
+        Log.e("playError",outputFile);
+
         //playing audio if type is interactWithSystem
         if (type.equals("interactWithSystem")) {
             hl2.postDelayed(playSong, 2000);
@@ -296,6 +300,7 @@ public class ActivityRecord extends Activity {
                 myRecorder = ExtAudioRecorder.getInstanse(false);
             } else {
                 myRecorder.reset();
+                myRecorder =  ExtAudioRecorder.getInstanse(false);
             }
             myRecorder.setOutputFile(outputFile);
             myRecorder.prepare();
@@ -420,9 +425,11 @@ public class ActivityRecord extends Activity {
         AlertDialog.Builder builder = new AlertDialog.Builder(ActivityRecord.this);
         builder.setTitle("دلیل گریه کودک چیست ؟");
         builder.setCancelable(false);
+
         builder.setItems(new CharSequence[]
                         {"گرسنگی", "تشنگی", "خواب آلودگی یا کم خوابی", "درد یا بیماری",
-                                "کثیف بودن", "بهانه گیری", "عدم تمایل به همکاری با والدین", "سایر", "نمیدانم"
+                                "کثیف بودن", "بهانه گیری", "عدم تمایل به همکاری با والدین",
+                                "واکسیناسیون","جدایی از مادر","ترس" ,"سایر", "نمیدانم"
                                 , "پاسخ نمیدهم"},
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -457,9 +464,15 @@ public class ActivityRecord extends Activity {
                                 cryingReason = 8;
                                 break;
                             case 9:
-                                cryingReason = 9;
+                                cryingReason = 11;
                                 break;
                             case 10:
+                                cryingReason = 12;
+                                break;
+                            case 11:
+                                cryingReason = 9;
+                                break;
+                            case 12:
                                 cryingReason = 10;
                                 break;
                         }
@@ -633,15 +646,19 @@ public class ActivityRecord extends Activity {
         stopPlayBtn.setEnabled(true);
         try {
             if (myPlayer == null) {
-
                 myPlayer = new MediaPlayer();
             } else {
+                Log.e("playReset","yes");
                 myPlayer.reset();
             }
 
+            Log.e("playError",outputFile);
             myPlayer.setDataSource(outputFile);
             myPlayer.prepare();
             myPlayer.start();
+            Log.e("playError"," is "+myPlayer.getDuration());
+            File file = new File(outputFile);
+            Log.e("playError"," is "+file.length());
             main_activity.sendToast("شروع پخش", this);
             myPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -660,7 +677,7 @@ public class ActivityRecord extends Activity {
 
 
         } catch (Exception e) {
-
+            Log.e("PlayError", e.getMessage());
             e.printStackTrace();
         }
     }

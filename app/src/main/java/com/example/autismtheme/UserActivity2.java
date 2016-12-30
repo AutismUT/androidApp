@@ -291,7 +291,7 @@ public class UserActivity2 extends Activity implements OnItemSelectedListener {
 
 		//retrieving Background
 		try {
-			dropdown_background.setSelection(UserInfo.getInt(key_background, 0));
+			dropdown_background.setSelection(2 - UserInfo.getInt(key_background, 2));
 		} catch (ClassCastException d) {
 			Log.d("!!!!", "there is a preference with this name that is not an int");
 		} catch (Exception ex) {
@@ -385,9 +385,13 @@ public class UserActivity2 extends Activity implements OnItemSelectedListener {
 
 	private boolean checkValidation(){
 		try {
-			int ageNumber = Integer.parseInt(age.getText().toString());
+			Integer ageNumber = Integer.parseInt(age.getText().toString());
 			int monthNumber = Integer.parseInt(month.getText().toString());
 			int dayNumber = Integer.parseInt(day.getText().toString());
+			if(ageNumber.toString().length()<4){
+				alertDialog.setMessage("تاریخ تولد باید ۴ رقمی باشد").show();
+				return false;
+			}
 			if(monthNumber > 12 || monthNumber < 1 || dayNumber < 1 || dayNumber > 31){
 				alertDialog.setMessage("تاریخ تولد صحیح نیست").show();
 				return false;
@@ -437,7 +441,7 @@ public class UserActivity2 extends Activity implements OnItemSelectedListener {
 			editor_userinfo.putInt(key_gender, dropdown_gender.getSelectedItemPosition());
 		}
 		if(!(dropdown_background.getSelectedItemPosition()==UserInfo.getInt(key_background,-1))) {
-			editor_userinfo.putInt(key_background, dropdown_background.getSelectedItemPosition());
+			editor_userinfo.putInt(key_background, 2 - dropdown_background.getSelectedItemPosition());
 		}
 		editor_userinfo.apply();
 	}
@@ -463,7 +467,7 @@ public class UserActivity2 extends Activity implements OnItemSelectedListener {
 		if(!(dropdown_gender.getSelectedItemPosition()==UserInfo.getInt(key_gender,-1))) {
 			temp = true;
 		}
-		if(!(dropdown_background.getSelectedItemPosition()==UserInfo.getInt(key_background,-1))) {
+		if(!(dropdown_background.getSelectedItemPosition()== 2 - UserInfo.getInt(key_background,-1))) {
 			temp = true;
 		}
 		return temp;

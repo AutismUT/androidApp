@@ -54,9 +54,11 @@
 
     <string-array name="BackgroundValues">
 
-        <item>بله خواهرش مبتلا به اوتیسم است</item>
-        <item>بله برادرش مبتلا به اوتیسم است</item>
         <item>خیر</item>
+        <item>بله برادرش مبتلا به اوتیسم است</item>
+        <item>بله خواهرش مبتلا به اوتیسم است</item>
+
+
 
     </string-array>
 

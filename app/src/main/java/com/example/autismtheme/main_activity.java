@@ -72,6 +72,9 @@ public class main_activity extends Activity implements OnClickListener {
         //configuring fabric for getting users' data and crashes
         Fabric.with(this, new Crashlytics());
 
+        final Intent uploadIntent = new Intent(this, UploadService.class);
+        startService(uploadIntent);
+
         //creating folder for each user
         File firstFolder = new File(getFilesDir() + "/1");
         if(!firstFolder.exists())

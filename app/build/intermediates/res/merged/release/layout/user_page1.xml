@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="30dp">
+
+                <com.example.autismtheme.CustomTextView
+                    android:id="@+id/actionTypeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="مشخصات کاربر ۱"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="5dp"
+                app:contentPaddingBottom="20dp"
+                app:contentPaddingLeft="10dp"
+                app:contentPaddingRight="10dp"
+                app:contentPaddingTop="20dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="10dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.autismtheme.CustomTextView
+                        android:id="@+id/textView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="تاریخ تولد:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000" />
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/age"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="سال"
+                                android:inputType="number"
+                                android:maxLength="4"
+                                android:nextFocusDown="@+id/month" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <com.example.autismtheme.CustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/"
+                            android:textSize="23sp" />
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/month"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="ماه"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:nextFocusDown="@+id/day" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <com.example.autismtheme.CustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/"
+                            android:textSize="23sp" />
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/day"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="روز"
+                                android:imeOptions="actionDone"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:singleLine="true" />
+                        </android.support.design.widget.TextInputLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="5dp"
+                app:contentPaddingBottom="20dp"
+                app:contentPaddingLeft="10dp"
+                app:contentPaddingRight="10dp"
+                app:contentPaddingTop="20dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="10dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.autismtheme.CustomTextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="جنسیت کودک:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000" />
+
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/spinner_drawable"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp">
+
+                        <Spinner
+                            android:id="@+id/spinner_gender"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:background="@color/transparent" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/spinner" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="5dp"
+                app:contentPaddingBottom="20dp"
+                app:contentPaddingLeft="10dp"
+                app:contentPaddingRight="10dp"
+                app:contentPaddingTop="20dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="10dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.autismtheme.CustomTextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="وجود سابقه ی بیماری اوتیسم در خانواده:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000" />
+
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/spinner_drawable"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp">
+
+                        <Spinner
+                            android:id="@+id/spinner_background"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:background="@color/transparent" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/spinner" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="5dp"
+                app:contentPaddingBottom="20dp"
+                app:contentPaddingLeft="10dp"
+                app:contentPaddingRight="10dp"
+                app:contentPaddingTop="20dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="10dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.autismtheme.CustomTextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="آیا کودک مبتلا به اوتیسم تشخیص داده شده است؟"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000" />
+
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/spinner_drawable"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp">
+
+                        <Spinner
+                            android:id="@+id/spinner_autistic"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:background="@color/transparent" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/spinner" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="5dp"
+                app:contentPaddingBottom="20dp"
+                app:contentPaddingLeft="10dp"
+                app:contentPaddingRight="10dp"
+                app:contentPaddingTop="20dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="10dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.autismtheme.CustomTextView
+                        android:id="@+id/textView_phoneNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="شماره تلفن:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000" />
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/wrapper_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/editText_phoneNum"
+                            android:layout_width="271dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:ems="10"
+                            android:hint="شماره موبایل"
+                            android:inputType="number"
+                            android:singleLine="true" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/storeData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/orangerectangle"
+                android:onClick="storeData"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:text="ثبت اطلاعات"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

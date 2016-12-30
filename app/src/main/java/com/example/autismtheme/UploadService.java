@@ -40,6 +40,29 @@ public class UploadService extends Service {
         return PublicInfo.getInt(key_child, 0);
     }
 
+
+    private void sendFiles(){
+        ArrayList<Item> items;
+        items = new ArrayList<>();
+        File firstFolder = new File(getFilesDir() + "/1/");
+        File[] files = firstFolder.listFiles();
+        for (File file : files) {
+            if(file.getPath()!=firstFolder.getPath())
+                items.add(new Item(1, file.getPath()));
+            Log.e("files", file.getPath());
+        }
+        File secondFolder = new File(getFilesDir() + "/2/");
+        files = secondFolder.listFiles();
+        for (File file : files) {
+            if(file.getPath()!=secondFolder.getPath())
+                items.add(new Item(2, file.getPath()));
+            Log.e("files", file.getPath());
+        }
+        for (Item item : items) {
+            UploadFileTask uft = new UploadFileTask();
+            uft.execute(item.fileName, item.childNum);
+        }
+    }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
@@ -50,34 +73,19 @@ public class UploadService extends Service {
         Log.e("userInfoup"," is "+UserInfo.getAll().toString());
 
         if (started == -1 && intent == null) {
-            ArrayList<Item> items;
-            items = new ArrayList<>();
-            File firstFolder = new File(getFilesDir() + "/1/");
-            File[] files = firstFolder.listFiles();
-            for (File file : files) {
-                file.getPath();
-                items.add(new Item(1, file.getPath()));
-                Log.e("files", file.getPath());
-            }
-            File secondFolder = new File(getFilesDir() + "/2/");
-            files = secondFolder.listFiles();
-            for (File file : files) {
-                file.getPath();
-                items.add(new Item(2, file.getParent()));
-                Log.e("files", file.getPath());
-            }
-            for (Item item : items) {
-                UploadFileTask uft = new UploadFileTask();
-                uft.execute(item.fileName, item.childNum);
-            }
+            sendFiles();
         }
         if (intent != null) {
+
             //if intent contains information of uploading file just get the name and upload it
-            String fileName = intent.getExtras().getString("fileName");
-            int childNum = intent.getExtras().getInt("childNum");
-            Log.e("backgroundIntent", " is "+intent.getExtras().getString("childNum"));
-            UploadFileTask uft = new UploadFileTask();
-            uft.execute(getFilesDir() + "/" + getChildNum() + "/" + fileName, getChildNum());
+            if(intent.getExtras()==null){
+                sendFiles();
+            }
+            else{
+                String fileName = intent.getExtras().getString("fileName");
+                UploadFileTask uft = new UploadFileTask();
+                uft.execute(getFilesDir() + "/" + getChildNum() + "/" + fileName, getChildNum());
+            }
         }
         started = 1;
 
@@ -186,6 +194,14 @@ public class UploadService extends Service {
                 if (file.exists()) {
                     file.delete();
                 }
+                Toast.makeText(getApplicationContext(),
+                        "فایل آپلود شد",
+                        Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(getApplicationContext(),
+                        "آپلود فایل ناموفق بود",
+                        Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -213,7 +229,7 @@ public class UploadService extends Service {
             String urlString = serverIp + "/upload.php?"
                     + "tel='" + UserInfo.getString(key_phonenum, null) + ""
                     + "'&male=" + (1 - UserInfo.getInt(key_gender, 0)) + ""
-                    + "&back=" + (2 - UserInfo.getInt(key_background, 0)) + ""
+                    + "&back=" + (UserInfo.getInt(key_background, 0)) + ""
                     + "&age='" + (UserInfo.getString(key_age, "not set")) + "'"
                     + "&id=" + UserInfo.getString(key_id, null) + ""
                     + "&first=" + first
@@ -302,6 +318,8 @@ public class UploadService extends Service {
                 inError = null;
                 if (status != HttpURLConnection.HTTP_OK) {
                     inError = conn.getErrorStream();
+                    UploadFileTask uft = new UploadFileTask();
+                    uft.execute(existingFileName, childNum);
                     return -1;
 //					for (int i = 0; i < inError.available(); i++) {
 //						Log.e("error"," is "+inError.read());

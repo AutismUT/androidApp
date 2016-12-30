@@ -30,9 +30,11 @@
     </string-array>
     <string-array name="BackgroundValues">
 
-        <item>بله خواهرش مبتلا به اوتیسم است</item>
-        <item>بله برادرش مبتلا به اوتیسم است</item>
         <item>خیر</item>
+        <item>بله برادرش مبتلا به اوتیسم است</item>
+        <item>بله خواهرش مبتلا به اوتیسم است</item>
+
+
 
     </string-array>
     <string-array name="GenderValues">
@@ -370,7 +372,7 @@
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="changeInfo">دسترسی به اطلاعات کودک</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">0546a757-556f-4cdc-b2cb-c49c4d2ec43a</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">a0ee2731-cf45-4bb3-ad0b-b40703e2647e</string>
     <string name="confirmation">
         با استفاده از این برنامه، ضمن تایید صحت اطلاعات مندرج در پروفایل و داده های ارسالی، رضایت خود را جهت به کار بردن فایل های صوتی تأیید شده (توسط کاربر) از این دستگاه به منظور انجام تحقیقات اعلام می دارم.
 صداهای ضبط شده و داده های دریافتی توسط این برنامه با رعایت حریم شخصی، تنها توسط گروه تحقیقاتی این پروژه و بدون استفاده از اطلاعات شخصی مورد بررسی قرار خواهد گرفت.

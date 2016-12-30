@@ -385,15 +385,19 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
 
     private boolean checkValidation(){
         try {
-            int ageNumber = Integer.parseInt(age.getText().toString());
+            Integer ageNumber = Integer.parseInt(age.getText().toString());
             int monthNumber = Integer.parseInt(month.getText().toString());
             int dayNumber = Integer.parseInt(day.getText().toString());
+            if(ageNumber.toString().length()<4){
+                                alertDialog.setMessage("تاریخ تولد باید ۴ رقمی باشد").show();
+                                return false;
+            }
             if(monthNumber > 12 || monthNumber < 1 || dayNumber < 1 || dayNumber > 31){
                 alertDialog.setMessage("تاریخ تولد صحیح نیست").show();
                 return false;
             }
-            if (ageNumber < Year-5 || ageNumber > Year) {
-                alertDialog.setMessage("سن کودک باید کمتر از ۵ سال باشد").show();
+            if (ageNumber < Year-7 || ageNumber > Year) {
+                alertDialog.setMessage("سن کودک باید کمتر از ۷ سال باشد").show();
                 return false;
             }
         } catch (NumberFormatException nfe) {
@@ -463,7 +467,7 @@ public class UserActivity1 extends Activity implements OnItemSelectedListener {
         if(!(dropdown_gender.getSelectedItemPosition()==UserInfo.getInt(key_gender,-1))) {
             temp = true;
         }
-        if(!(dropdown_background.getSelectedItemPosition()==UserInfo.getInt(key_background,-1))) {
+        if(!(dropdown_background.getSelectedItemPosition()== UserInfo.getInt(key_background,-1))) {
             temp = true;
         }
         return temp;

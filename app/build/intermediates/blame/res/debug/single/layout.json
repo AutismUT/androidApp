@@ -228,12 +228,12 @@
         "source": "/home/sajad/Downloads/Autism1/app/src/main/res/layout/user_page2.xml"
     },
     {
-        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/debug/layout/interact_dialogue.xml",
-        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/layout/interact_dialogue.xml"
-    },
-    {
         "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/debug/layout/child_item_help.xml",
         "source": "/home/sajad/Downloads/Autism1/app/src/main/res/layout/child_item_help.xml"
+    },
+    {
+        "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/debug/layout/interact_dialogue.xml",
+        "source": "/home/sajad/Downloads/Autism1/app/src/main/res/layout/interact_dialogue.xml"
     },
     {
         "merged": "/home/sajad/Downloads/Autism1/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",

@@ -39,40 +39,32 @@
         </activity>
         <activity
             android:name="com.example.autismtheme.AboutAutismActivity"
-            android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.example.autismtheme.HelpActivity"
-            android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.example.autismtheme.AboutUsActivity"
-            android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.example.autismtheme.UserActivity1"
-            android:noHistory="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name="com.example.autismtheme.UserActivity2"
-            android:noHistory="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name="com.example.autismtheme.ActivityInteract"
-            android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.example.autismtheme.ActivityRecord"
-            android:noHistory="true"
             android:screenOrientation="portrait" />
 
         <service
             android:name="com.example.autismtheme.UploadService"
             android:enabled="true"
             android:exported="true"
-            android:noHistory="true"
             android:process=":UploadService" >
         </service>
 
