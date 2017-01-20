@@ -428,8 +428,8 @@ public class ActivityRecord extends Activity {
 
         builder.setItems(new CharSequence[]
                         {"گرسنگی", "تشنگی", "خواب آلودگی یا کم خوابی", "درد یا بیماری",
-                                "کثیف بودن", "بهانه گیری", "عدم تمایل به همکاری با والدین",
-                                "واکسیناسیون","جدایی از مادر","ترس" ,"سایر", "نمیدانم"
+                                "کثیف بودن", "بهانه گیری", "عدم تمایل به همکاری با بزرگترها",
+                                "درد واکسن","جدایی از مادر","ترس" ,"سایر", "نمیدانم"
                                 , "پاسخ نمیدهم"},
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

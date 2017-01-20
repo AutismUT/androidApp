@@ -372,7 +372,7 @@
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="changeInfo">دسترسی به اطلاعات کودک</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">a0ee2731-cf45-4bb3-ad0b-b40703e2647e</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">223e2c4c-66fd-405c-b1b7-933ed39d710e</string>
     <string name="confirmation">
         با استفاده از این برنامه، ضمن تایید صحت اطلاعات مندرج در پروفایل و داده های ارسالی، رضایت خود را جهت به کار بردن فایل های صوتی تأیید شده (توسط کاربر) از این دستگاه به منظور انجام تحقیقات اعلام می دارم.
 صداهای ضبط شده و داده های دریافتی توسط این برنامه با رعایت حریم شخصی، تنها توسط گروه تحقیقاتی این پروژه و بدون استفاده از اطلاعات شخصی مورد بررسی قرار خواهد گرفت.
